@@ -7,13 +7,13 @@ type Props = {
 
 export default function Logo({ color, fontSize }: Props) {
   return (
-    <P color={color} fontSize={fontSize}>
+    <Text color={color} fontSize={fontSize}>
       Mout_
-    </P>
+    </Text>
   );
 }
 
-const P = styled.div<{ color: string; fontSize: string }>`
+const Text = styled.p<{ color: string; fontSize: string }>`
   color: ${(props) => props.color};
   font-size: ${(props) => props.fontSize};
   font-weight: bold;

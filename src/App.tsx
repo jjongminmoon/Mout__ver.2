@@ -1,15 +1,34 @@
 import styled from "@emotion/styled";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import PageNavigator from "./PageNavigator";
+import ScrollToUp from "./util/scrollToUp";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { AllUserProvider } from "./contexts/AllUserProvider";
+import { AuthProvider } from "./contexts/AuthProvider";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      suspense: true
+    }
+  }
+});
 
 function App() {
   return (
-    <>
-      <Header />
-      <Main>
-        <PageNavigator />
-      </Main>
-    </>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <AllUserProvider>
+          <Header />
+          <Main>
+            <PageNavigator />
+          </Main>
+          <Footer />
+        </AllUserProvider>
+      </AuthProvider>
+      <ScrollToUp />
+    </QueryClientProvider>
   );
 }
 

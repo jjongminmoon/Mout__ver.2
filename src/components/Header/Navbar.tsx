@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const navList = [
@@ -9,12 +10,19 @@ const navList = [
 ];
 
 export default function Navbar() {
+  const [selected, setSelected] = useState("추천");
+
   return (
     <NavList>
       {navList.map(({ title, pathname }) => (
-        <li key={title}>
+        <Item
+          key={title}
+          onClick={() => setSelected(title)}
+          color={title === selected ? "white" : "#666666"}
+          underline={title === selected ? "3px solid white" : "none"}
+        >
           <Link to={pathname}>{title}</Link>
-        </li>
+        </Item>
       ))}
     </NavList>
   );
@@ -27,4 +35,10 @@ const NavList = styled.ul`
   font-size: 18px;
   font-weight: bold;
   margin: 20px 0 15px 0;
+`;
+
+const Item = styled.li<{ color: string; underline: string }>`
+  color: ${(props) => props.color};
+  padding-bottom: 8px;
+  border-bottom: ${(props) => props.underline};
 `;

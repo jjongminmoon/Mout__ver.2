@@ -3,12 +3,15 @@ import Logo from "./Common/Logo";
 import ActionBar from "./Header/ActionBar";
 import Navbar from "./Header/Navbar";
 import SearchButton from "./Header/SearchButton";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
     <Section>
       <Wrapper>
-        <Logo color="white" fontSize="30px" />
+        <Link to="/">
+          <Logo color="white" fontSize="30px" />
+        </Link>
         <ActionBar />
       </Wrapper>
       <Wrapper>
@@ -28,6 +31,7 @@ const Section = styled.header`
   padding-top: 20px;
   padding-bottom: 10px;
   background-color: black;
+  z-index: 9999;
 `;
 
 const Wrapper = styled.div`
