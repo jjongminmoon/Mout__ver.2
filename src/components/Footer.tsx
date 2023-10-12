@@ -31,7 +31,7 @@ const Container = styled.div`
   justify-content: space-between;
   padding: 40px 160px 69px 160px;
   font-size: 12px;
-  color: #666;
+  color: var(--mout-gray-m);
 `;
 
 const Title = styled.p`

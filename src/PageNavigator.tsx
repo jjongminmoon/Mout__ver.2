@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import MainPage from "./pages/MainPage";
-import CategoryPage from "./pages/CategoryPage";
+import TradePage from "./pages/TradePage";
 import TrendPage from "./pages/TrendPage";
 import ShowroomPage from "./pages/ShowroomPage";
 import LoginPage from "./pages/LoginPage";
@@ -13,7 +13,7 @@ export default function PageNavigator() {
   return (
     <Routes>
       <Route path="/" element={<MainPage />} />
-      <Route path="/category" element={<CategoryPage />} />
+      <Route path="/trade" element={<TradePage />} />
       <Route path="/trend" element={<TrendPage />} />
       <Route path="/showroom" element={<ShowroomPage />} />
       <Route path="/login" element={<LoginPage />} />

@@ -11,14 +11,14 @@ export default function RankingCategory({ selectedCategory, setSelectedCategory 
   return (
     <Wrapper>
       {categoryList.map(({ id, title }) => (
-        <Category
+        <CategoryItem
           key={id}
           color={id === selectedCategory ? "black" : "#aaaaaa"}
           fontWeight={id === selectedCategory ? "bold" : ""}
           onClick={() => setSelectedCategory(id)}
         >
           {title}
-        </Category>
+        </CategoryItem>
       ))}
     </Wrapper>
   );
@@ -29,7 +29,7 @@ const Wrapper = styled.div`
   gap: 10px;
 `;
 
-const Category = styled.button<{ color: string; fontWeight: string }>`
+const CategoryItem = styled.button<{ color: string; fontWeight: string }>`
   margin-top: 10px;
   padding: 5px;
   font-size: 16px;

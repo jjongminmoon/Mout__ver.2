@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const navList = [
   { title: "추천", pathname: "/" },
-  { title: "카테고리", pathname: "/category" },
+  { title: "트레이드", pathname: "/trade" },
   { title: "트렌드", pathname: "/trend" },
   { title: "쇼룸", pathname: "/showroom" }
 ];
@@ -18,7 +18,7 @@ export default function Navbar() {
         <Item
           key={title}
           onClick={() => setSelected(title)}
-          color={title === selected ? "white" : "#666666"}
+          color={title === selected ? "white" : "var(--mout-gray-m)"}
           underline={title === selected ? "3px solid white" : "none"}
         >
           <Link to={pathname}>{title}</Link>

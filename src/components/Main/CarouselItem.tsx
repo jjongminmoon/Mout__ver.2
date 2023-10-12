@@ -21,7 +21,7 @@ export default function CarouselItem(props: Props) {
         <Name>{name_kr}</Name>
         <div>
           <Price>{commaFormat(price)}원</Price>
-          <p className="caption">즉시 구매가</p>
+          <p className="caption">즉시구매가</p>
         </div>
       </Item>
     </Link>
@@ -51,7 +51,7 @@ const Image = styled.div`
 
 const Name = styled.p`
   font-size: 14px;
-  color: #666666;
+  color: var(--mout-gray-m);
   height: 40px;
   overflow: hidden;
   text-overflow: ellipsis;

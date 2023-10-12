@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import PageNavigator from "./PageNavigator";
-import ScrollToUp from "./util/scrollToUp";
+import ScrollToUp from "./util/ScrollToUp";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { AllUserProvider } from "./contexts/AllUserProvider";
 import { AuthProvider } from "./contexts/AuthProvider";
