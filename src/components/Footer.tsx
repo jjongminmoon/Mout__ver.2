@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
 
-import FooterBar from "./Footer/FooterBar";
-import CompayInfo from "./Footer/CompayInfo";
-import AddressInfo from "./Footer/AddressInfo";
-import Notice from "./Footer/Notice";
-import CustomerService from "./Footer/CustomerService";
+import FooterBar from "./footer/FooterBar";
+import CompayInfo from "./footer/CompayInfo";
+import AddressInfo from "./footer/AddressInfo";
+import Notice from "./footer/Notice";
+import CustomerService from "./footer/CustomerService";
 
 export default function Footer() {
   return (

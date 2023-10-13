@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import NewCarousel from "../components/Main/NewCarousel";
-import RankingCarousel from "../components/Main/RankingCarousel";
+import NewCarousel from "../components/main/NewCarousel";
+import RankingCarousel from "../components/main/RankingCarousel";
 
 export default function MainPage() {
   return (

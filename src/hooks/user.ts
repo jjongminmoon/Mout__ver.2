@@ -3,22 +3,23 @@ import { dbService } from "../service/firebase";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../contexts/AuthProvider";
 
-export const addUser = async (email: string | null) => {
+export const useAddUser = async (email: string | null) => {
   const coll = collection(dbService, "user");
 
   await addDoc(coll, {
     email: email,
     image: null,
-    ninkname: null,
+    nickname: null,
     address: [],
     likeProducts: [],
     likePosts: [],
+    comments: [],
     posts: [],
     cart: []
   });
 };
 
-export const getUser = () => {
+export const useUserData = () => {
   const authInfo = useContext(AuthContext);
   const [userData, setUserData] = useState<any>([]);
 
@@ -38,7 +39,7 @@ export const getUser = () => {
     return () => {
       unsubscribe();
     };
-  }, [authInfo]);
+  }, []);
 
   return { userData };
 };

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import useProducts from "../../hooks/products";
-import Title from "../Common/Title";
+import Title from "../common/Title";
 import CarouselItem from "./CarouselItem";
 import CarouselUI from "./CarouselUI";
 import RankingCategory from "./RankingCategory";

@@ -9,7 +9,7 @@ export default function Title({ fontSize, children }: Props) {
   return <Text fontSize={fontSize}>{children}</Text>;
 }
 
-const Text = styled.p<{ fontSize: string }>`
+const Text = styled.h2<{ fontSize: string }>`
   color: black;
   font-size: ${(props) => props.fontSize};
   font-weight: bold;

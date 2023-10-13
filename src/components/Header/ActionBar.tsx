@@ -1,21 +1,32 @@
 import styled from "@emotion/styled";
-import { Link } from "react-router-dom";
-
-const actionList = [
-  { title: "로그인", pathname: "/login" },
-  { title: "마이페이지", pathname: "/mypage" },
-  { title: "고객센터", pathname: "/cs" }
-];
+import { actionList } from "../common/mapData";
+import { Link, useNavigate } from "react-router-dom";
+import { useUserData } from "../../hooks/user";
+import { signOut } from "firebase/auth";
+import { auth } from "../../service/firebase";
 
 export default function ActionBar() {
+  const { userData } = useUserData();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    if (confirm("로그아웃 하시겠습니까?")) {
+      signOut(auth);
+      alert("정상적으로 로그아웃 되었습니다.");
+      navigate("/");
+    }
+  };
+
   return (
     <ActionList>
+      <Item onClick={userData === null ? handleLogout : () => navigate("/login")}>
+        {userData === null ? "로그아웃" : "로그인"}
+      </Item>
       {actionList.map(({ title, pathname }) => (
-        <li key={title}>
+        <Item key={title}>
           <Link to={pathname}>{title}</Link>
-        </li>
+        </Item>
       ))}
-      <Link to="/admin">관리페이지</Link>
     </ActionList>
   );
 }
@@ -25,4 +36,8 @@ const ActionList = styled.ul`
   gap: 20px;
   color: var(--mout-gray-s);
   font-size: 13px;
+`;
+
+const Item = styled.li`
+  cursor: pointer;
 `;

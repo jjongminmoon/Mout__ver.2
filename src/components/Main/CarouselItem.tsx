@@ -13,8 +13,8 @@ export default function CarouselItem(props: Props) {
   const { id, image, name_kr, price } = props;
 
   return (
-    <Link to={`/trade/detail/${id}`}>
-      <Item>
+    <Item>
+      <Link to={`/trade/detail/${id}`}>
         <Image>
           <img src={image} alt={`${name_kr} 이미지`} />
         </Image>
@@ -23,8 +23,8 @@ export default function CarouselItem(props: Props) {
           <Price>{commaFormat(price)}원</Price>
           <p className="caption">즉시구매가</p>
         </div>
-      </Item>
-    </Link>
+      </Link>
+    </Item>
   );
 }
 

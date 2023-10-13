@@ -1,13 +1,16 @@
 import styled from "@emotion/styled";
-import FilterBar from "../components/Trade/TradeFilterBar";
+import FilterBar from "../components/trade/TradeFilterBar";
 import useProducts from "../hooks/products";
 import commaFormat from "../util/commaFormat";
+import Sorting from "../components/trade/Sorting";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function TradePage() {
   const { data: products } = useProducts();
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedBrand, setSelectedBrand] = useState("");
+  const [selectedSorting, setSelectedSorting] = useState("인기순");
 
   return (
     <Section>
@@ -17,20 +20,36 @@ export default function TradePage() {
         selectedBrand={selectedBrand}
         setSelectedBrand={setSelectedBrand}
       />
-      <ProductsList>
-        {products
-          ?.filter(({ category }) => category.includes(selectedCategory))
-          .filter(({ brand }) => brand.includes(selectedBrand))
-          .map(({ id, image, brand, name_kr, price }) => (
-            <Item key={id}>
-              <Image src={image} alt={`${name_kr} 제품 이미지`} />
-              <Brand>{brand}</Brand>
-              <Name>{name_kr}</Name>
-              <Price>{commaFormat(price)}원</Price>
-              <p className="caption">즉시구매가</p>
-            </Item>
-          ))}
-      </ProductsList>
+      <Wrapper>
+        <Sorting selectedSorting={selectedSorting} setSelectedSorting={setSelectedSorting} />
+        <ProductsList>
+          {products
+            ?.filter(({ category }) => category.includes(selectedCategory))
+            .filter(({ brand }) => brand.includes(selectedBrand))
+            .sort((a, b): any =>
+              selectedSorting === "인기순"
+                ? b.salesVolume - a.salesVolume
+                : selectedSorting === "최근 발매순"
+                ? Number(b.releaseDate) - Number(a.releaseDate)
+                : selectedSorting === "높은 가격순"
+                ? b.price - a.price
+                : selectedSorting === "낮은 가격순"
+                ? a.price - b.price
+                : null
+            )
+            .map(({ id, image, brand, name_kr, price }) => (
+              <Item key={id}>
+                <Link to={`/trade/detail/${id}`}>
+                  <Image src={image} alt={`${name_kr} 제품 이미지`} />
+                  <Brand>{brand}</Brand>
+                  <Name>{name_kr}</Name>
+                  <Price>{commaFormat(price)}원</Price>
+                  <p className="caption">즉시구매가</p>
+                </Link>
+              </Item>
+            ))}
+        </ProductsList>
+      </Wrapper>
     </Section>
   );
 }
@@ -42,11 +61,14 @@ const Section = styled.section`
   padding: 60px 0;
 `;
 
+const Wrapper = styled.div``;
+
 const ProductsList = styled.ul`
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 10px;
   width: 100%;
+  margin-top: 20px;
 `;
 
 const Item = styled.li`

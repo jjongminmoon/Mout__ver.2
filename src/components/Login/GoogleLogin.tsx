@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { AllUserContext } from "../../contexts/AllUserProvider";
 import { loginGoogle } from "../../service/firebase";
-import { addUser } from "../../hooks/user";
+import { useAddUser } from "../../hooks/user";
 import { useNavigate } from "react-router-dom";
 
 export default function GoogleLogin() {
@@ -18,7 +18,7 @@ export default function GoogleLogin() {
         alert("정상적으로 로그인 되었습니다.");
         navigate("/");
       } else {
-        addUser(user.email);
+        useAddUser(user.email);
         alert("Mout에 오신 것을 환영합니다. 회원님의 기본 정보를 입력해주세요.");
         navigate("/");
       }

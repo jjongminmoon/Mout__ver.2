@@ -3,6 +3,8 @@
 :root {
   --mout-gray-s: #999999;
   --mout-gray-m: #666666;
+  --mout-button-blue: #4ca2f3;
+  --mout-button-red: #ff6b6b;
 }
 
 body {

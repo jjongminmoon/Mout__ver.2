@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
-import Logo from "./Common/Logo";
-import ActionBar from "./Header/ActionBar";
-import Navbar from "./Header/Navbar";
-import SearchButton from "./Header/SearchButton";
+import Logo from "./common/Logo";
+import ActionBar from "./header/ActionBar";
+import Navbar from "./header/Navbar";
+import SearchButton from "./header/SearchButton";
 import { Link } from "react-router-dom";
 
 export default function Header() {

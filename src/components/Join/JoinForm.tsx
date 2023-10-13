@@ -1,11 +1,11 @@
 import styled from "@emotion/styled";
-import Input from "../Common/Input";
+import Input from "../common/Input";
 import Checkbox from "./Checkbox";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../service/firebase";
-import { addUser } from "../../hooks/user";
+import { useAddUser } from "../../hooks/user";
 
 export default function JoinForm() {
   const [email, setEmail] = useState("");
@@ -22,7 +22,7 @@ export default function JoinForm() {
     } else {
       createUserWithEmailAndPassword(auth, email, pwd)
         .then(() => {
-          addUser(email);
+          useAddUser(email);
 
           alert("Mout에 오신 것을 환영합니다. 회원님의 기본 정보를 입력해주세요.");
           navigate("/mypage/info");

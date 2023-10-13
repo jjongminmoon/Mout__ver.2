@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { categoryList } from "../Common/commonData";
+import { categoryList } from "../common/mapData";
 import { SetStateAction } from "react";
 
 type Props = {
@@ -10,14 +10,14 @@ type Props = {
 export default function RankingCategory({ selectedCategory, setSelectedCategory }: Props) {
   return (
     <Wrapper>
-      {categoryList.map(({ id, title }) => (
+      {categoryList.map(({ id, title, print }) => (
         <CategoryItem
           key={id}
-          color={id === selectedCategory ? "black" : "#aaaaaa"}
-          fontWeight={id === selectedCategory ? "bold" : ""}
-          onClick={() => setSelectedCategory(id)}
+          color={title === selectedCategory ? "black" : "#aaaaaa"}
+          fontWeight={title === selectedCategory ? "bold" : ""}
+          onClick={() => setSelectedCategory(title)}
         >
-          {title}
+          {print}
         </CategoryItem>
       ))}
     </Wrapper>

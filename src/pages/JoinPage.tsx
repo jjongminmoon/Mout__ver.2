@@ -1,13 +1,11 @@
 import styled from "@emotion/styled";
-import Title from "../components/Common/Logo";
-import JoinForm from "../components/Join/JoinForm";
+import Title from "../components/common/Title";
+import JoinForm from "../components/join/JoinForm";
 
 export default function JoinPage() {
   return (
     <Section>
-      <Title color="black" fontSize="50px">
-        회원가입
-      </Title>
+      <Title fontSize="50px">회원가입</Title>
       <JoinForm />
     </Section>
   );
