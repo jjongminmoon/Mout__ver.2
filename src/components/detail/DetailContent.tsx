@@ -54,7 +54,7 @@ const Price = styled.div`
   font-size: 30px;
   font-weight: bold;
   margin-top: 40px;
-  padding-bottom: 20px;
+  padding-bottom: 60px;
   border-bottom: 1px solid #eee;
 
   .caption {

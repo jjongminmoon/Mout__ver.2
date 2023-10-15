@@ -1,13 +1,17 @@
 import styled from "@emotion/styled";
-import DetailContent from "../components/detail/DetailContent";
 import { useUserData } from "../hooks/user";
+import { useState } from "react";
+import DetailContent from "../components/detail/DetailContent";
 import useFullProduct from "../hooks/product";
-import { useEffect, useState } from "react";
-import OptionSelector from "../components/detail/OptionSelector";
-import PurchaseAndCartButton from "../components/detail/PurchaseAndCartButton";
+import SizeSeletorButton from "../components/detail/SizeSeletorButton";
+import QuantitySelector from "../components/detail/QuantitySeletor";
+import PurchaseButton from "../components/detail/PurchaseButton";
+import AddToCartButton from "../components/detail/AddToCartButton";
 import DeliveryInfo from "../components/detail/DeliveryInfo";
 import EventBanner from "../components/detail/EventBanner";
 import ModelInfo from "../components/detail/ModelInfo";
+import RelatedProductsCarousel from "../components/detail/RelatedProductsCarousel";
+import ProductHeaderBar from "../components/detail/ProductHeaderBar";
 
 export default function DetailPage() {
   const { userData } = useUserData();
@@ -18,6 +22,15 @@ export default function DetailPage() {
   return (
     product && (
       <Section>
+        <ProductHeaderBar
+          userData={userData}
+          product={product}
+          category={product.category}
+          selectedSize={selectedSize}
+          setSelectedSize={setSelectedSize}
+          quantity={quantity}
+          setQuantity={setQuantity}
+        />
         <Container>
           <ImageWrapper>
             <ImageBox>
@@ -26,24 +39,33 @@ export default function DetailPage() {
           </ImageWrapper>
           <Wrapper>
             <DetailContent product={product} userData={userData} />
-            <OptionSelector
-              category={product.category}
-              selectedSize={selectedSize}
-              setSelectedSize={setSelectedSize}
-              quantity={quantity}
-              setQuantity={setQuantity}
-            />
-            <PurchaseAndCartButton
-              userData={userData}
-              product={product}
-              selectedSize={selectedSize}
-              quantity={quantity}
-            />
+            <OptionSelector>
+              <SizeSeletorButton
+                height="46px"
+                category={product.category}
+                selectedSize={selectedSize}
+                setSelectedSize={setSelectedSize}
+              />
+              <QuantitySelector height="46px" quantity={quantity} setQuantity={setQuantity} />
+            </OptionSelector>
+            <Space />
+            <ButtonBox>
+              <PurchaseButton height="62px" fontSize="18px" />
+              <AddToCartButton
+                fontSize="18px"
+                height="62px"
+                userData={userData}
+                product={product}
+                selectedSize={selectedSize}
+                quantity={quantity}
+              />
+            </ButtonBox>
             <DeliveryInfo />
             <EventBanner />
             <ModelInfo product={product} />
           </Wrapper>
         </Container>
+        <RelatedProductsCarousel product={product} />
       </Section>
     )
   );
@@ -59,6 +81,8 @@ const Container = styled.div`
   display: flex;
   gap: 60px;
   width: 100%;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #eee;
 `;
 
 const ImageWrapper = styled.div`
@@ -78,4 +102,20 @@ const Image = styled.img`
 
 const Wrapper = styled.div`
   width: 100%;
+`;
+
+const OptionSelector = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+`;
+
+const Space = styled.div`
+  height: 12px;
+`;
+
+const ButtonBox = styled.div`
+  display: flex;
+  gap: 12px;
+  text-align: center;
 `;

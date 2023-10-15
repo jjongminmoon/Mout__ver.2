@@ -1,19 +1,23 @@
 import styled from "@emotion/styled";
-import { UserInfoProps } from "../../model/user";
-import { ProductProps } from "../../model/product";
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { dbService } from "../../service/firebase";
 import { CartProps } from "../../model/cart";
+import { UserInfoProps } from "../../model/user";
+import { ProductProps } from "../../model/product";
 import { useNavigate } from "react-router-dom";
 
 type Props = {
+  height: string;
+  fontSize: string;
   userData: UserInfoProps;
   product: ProductProps;
   selectedSize: string;
   quantity: number;
 };
 
-export default function PurchaseAndCartButton({
+export default function AddToCartButton({
+  height,
+  fontSize,
   userData,
   product,
   selectedSize,
@@ -52,33 +56,23 @@ export default function PurchaseAndCartButton({
       }
     }
   };
+
   return (
-    <Container>
-      <Button backgroundColor="var(--mout-button-blue)" onClick={() => {}}>
-        구매
-      </Button>
-      <Button backgroundColor="var(--mout-button-red)" onClick={addToCart}>
-        장바구니
-      </Button>
-    </Container>
+    <Button height={height} fontSize={fontSize} onClick={addToCart}>
+      장바구니
+    </Button>
   );
 }
 
-const Container = styled.div`
-  display: flex;
-  gap: 12px;
-  margin-top: 12px;
-`;
-
-const Button = styled.button<{ backgroundColor: string }>`
+const Button = styled.button<{ height: string; fontSize: string }>`
   width: 100%;
-  height: 62px;
-  font-size: 18px;
+  height: ${(props) => props.height};
+  font-size: ${(props) => props.fontSize};
   font-weight: bold;
   color: white;
   text-align: center;
   padding: 11px 0;
   border: none;
   border-radius: 12px;
-  background-color: ${(props) => props.backgroundColor};
+  background-color: var(--mout-button-red);
 `;
