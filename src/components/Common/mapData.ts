@@ -33,7 +33,7 @@ export const sortingList = [
 export const shoppingNavList = [
   { name: "장바구니", pathname: "/mypage/cart" },
   { name: "찜한 상품", pathname: "/mypage/favorite" },
-  { name: "회원정보", pathname: "/mypage/user-info" },
+  { name: "회원 정보", pathname: "/mypage/user-info" },
   { name: "배송지 관리", pathname: "/mypage/address-management" }
 ];
 

@@ -1,12 +1,13 @@
 import styled from "@emotion/styled";
 import { actionList } from "../common/mapData";
 import { Link, useNavigate } from "react-router-dom";
-import { useUserData } from "../../hooks/user";
 import { signOut } from "firebase/auth";
 import { auth } from "../../service/firebase";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 export default function ActionBar() {
-  const { userData } = useUserData();
+  const authData = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -19,8 +20,8 @@ export default function ActionBar() {
 
   return (
     <ActionList>
-      <Item onClick={userData === null ? handleLogout : () => navigate("/login")}>
-        {userData === null ? "로그아웃" : "로그인"}
+      <Item onClick={authData ? handleLogout : () => navigate("/login")}>
+        {authData ? "로그아웃" : "로그인"}
       </Item>
       {actionList.map(({ title, pathname }) => (
         <Item key={title}>

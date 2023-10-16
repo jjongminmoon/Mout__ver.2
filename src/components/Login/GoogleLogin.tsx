@@ -10,8 +10,8 @@ export default function GoogleLogin() {
   const allUser = useContext(AllUserContext);
   const navigate = useNavigate();
 
-  const handleGoogleLogin = () => {
-    loginGoogle().then((result) => {
+  const handleGoogleLogin = async () => {
+    await loginGoogle().then((result) => {
       const user = result.user;
 
       if (allUser.includes(user)) {

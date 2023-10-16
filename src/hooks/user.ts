@@ -33,7 +33,7 @@ export const useUserData = () => {
         };
       });
 
-      setUserData(arr.find((user: any) => user.email === authInfo.email));
+      setUserData(arr.find((user: any) => user.email === authInfo?.email));
     });
 
     return () => {

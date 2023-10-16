@@ -10,10 +10,19 @@ export default function LoginForm() {
   const [pwd, setPwd] = useState("");
   const navigate = useNavigate();
 
-  const handleEmailLogin = (e: React.FormEvent) => {
+  const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setEmail(e.target.value);
+  };
+  const handlePwd = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setPwd(e.target.value);
+  };
+
+  const handleEmailLogin = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    signInWithEmailAndPassword(auth, email, pwd)
+    await signInWithEmailAndPassword(auth, email, pwd)
       .then(() => {
         alert("정상적으로 로그인 되었습니다.");
         navigate("/");
@@ -30,7 +39,7 @@ export default function LoginForm() {
           height="50px"
           placeholder="아이디(이메일)"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={handleEmail}
         />
         <Input
           type="password"
@@ -38,7 +47,7 @@ export default function LoginForm() {
           height="50px"
           placeholder="비밀번호"
           value={pwd}
-          onChange={(e) => setPwd(e.target.value)}
+          onChange={handlePwd}
         />
         <Button>로그인</Button>
       </Form>

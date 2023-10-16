@@ -3,9 +3,13 @@ import useProducts from "../../hooks/products";
 import Title from "../common/Title";
 import CarouselItem from "../common/CarouselItem";
 import CarouselUI from "../common/CarouselUI";
+import { useUserData } from "../../hooks/user";
 
 export default function NewCarousel() {
   const { data: products } = useProducts();
+  const { userData } = useUserData();
+
+  console.log(userData);
 
   return (
     <Container>

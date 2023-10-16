@@ -1,3 +1,36 @@
+import styled from "@emotion/styled";
+import Title from "../components/common/Title";
+import OpenFormButton from "../components/trend/OpenFormButton";
+import { useState } from "react";
+import TrendList from "../components/trend/TrendList";
+import TrendUploadForm from "../components/trend/TrendUploadForm";
+
 export default function TrendPage() {
-  return <p>트렌드 페이지</p>;
+  const [openForm, setOpenForm] = useState(false);
+
+  return (
+    <Section>
+      <TitleWrapper>
+        <Title fontSize="32px">트렌드</Title>
+        <OpenFormButton setOpenForm={setOpenForm} />
+      </TitleWrapper>
+      <TrendList />
+
+      {openForm && <TrendUploadForm setOpenForm={setOpenForm} />}
+    </Section>
+  );
 }
+
+const Section = styled.section`
+  width: 1200px;
+  padding: 60px 0;
+  margin: 0 auto;
+`;
+
+const TitleWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #ddd;
+`;

@@ -1,19 +1,19 @@
 import styled from "@emotion/styled";
 import { useUserData } from "../hooks/user";
 import { useState } from "react";
-import DetailContent from "../components/detail/DetailContent";
+import DetailContent from "../components/product-detail/DetailContent";
 import useFullProduct from "../hooks/product";
-import SizeSeletorButton from "../components/detail/SizeSeletorButton";
-import QuantitySelector from "../components/detail/QuantitySeletor";
-import PurchaseButton from "../components/detail/PurchaseButton";
-import AddToCartButton from "../components/detail/AddToCartButton";
-import DeliveryInfo from "../components/detail/DeliveryInfo";
-import EventBanner from "../components/detail/EventBanner";
-import ModelInfo from "../components/detail/ModelInfo";
-import RelatedProductsCarousel from "../components/detail/RelatedProductsCarousel";
-import ProductHeaderBar from "../components/detail/ProductHeaderBar";
+import SizeSeletorButton from "../components/product-detail/SizeSeletorButton";
+import QuantitySelector from "../components/product-detail/QuantitySeletor";
+import PurchaseButton from "../components/product-detail/PurchaseButton";
+import AddToCartButton from "../components/product-detail/AddToCartButton";
+import DeliveryInfo from "../components/product-detail/DeliveryInfo";
+import EventBanner from "../components/product-detail/EventBanner";
+import ModelInfo from "../components/product-detail/ModelInfo";
+import RelatedProductsCarousel from "../components/product-detail/RelatedProductsCarousel";
+import ProductHeaderBar from "../components/product-detail/ProductHeaderBar";
 
-export default function DetailPage() {
+export default function ProductDetailPage() {
   const { userData } = useUserData();
   const { product } = useFullProduct();
   const [selectedSize, setSelectedSize] = useState("");

@@ -14,13 +14,13 @@ export default function JoinForm() {
   const [checked, setChecked] = useState(false);
   const navigate = useNavigate();
 
-  const handleJoin = (e: React.FormEvent) => {
+  const handleJoin = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (pwd !== pwd2) {
       alert("비밀번호가 일치하지 않습니다. 다시 한번 확인해주세요.");
     } else {
-      createUserWithEmailAndPassword(auth, email, pwd)
+      await createUserWithEmailAndPassword(auth, email, pwd)
         .then(() => {
           useAddUser(email);
 

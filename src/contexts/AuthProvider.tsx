@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { auth } from "../service/firebase";
 import { User } from "firebase/auth";
+import { auth } from "../service/firebase";
 
-export const AuthContext = React.createContext<any | null>(null);
+export const AuthContext = React.createContext<User | null>(null);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
