@@ -1,45 +1,23 @@
 import styled from "@emotion/styled";
-import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
-import { useEffect, useState } from "react";
-import { dbService } from "../../service/firebase";
+
 import { TrendProps } from "../../model/trend";
 import { Link } from "react-router-dom";
 import LikesAndComments from "./LikesAndComments";
+import useTrend from "../../hooks/trend";
+import ProfileImage from "../common/ProfileImage";
 
 export default function TrendList() {
-  const [trendList, setTrendList] = useState<any>([]);
-
-  console.log(trendList);
-
-  useEffect(() => {
-    const q = query(collection(dbService, "trend"), orderBy("createdAt", "desc"));
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      const arr = querySnapshot.docs.map((doc) => {
-        return {
-          id: doc.id,
-          ...doc.data()
-        };
-      });
-
-      setTrendList(arr);
-    });
-
-    return () => {
-      unsubscribe();
-    };
-  }, []);
+  const { trendList } = useTrend();
 
   return (
     <Container>
       {trendList.map(({ id, image, user_image, nickname, tag, liked, comments }: TrendProps) => (
-        <Link to={`/trend/detail/${id}`}>
-          <PostCard key={id}>
+        <PostCard key={id}>
+          <Link to={`/trend/detail/${id}`}>
             <Image src={image} alt={`${nickname} 님의 게시물 이미지`} />
             <Content>
               <UserInfo>
-                <ImageWrapper>
-                  <UserImage src={user_image} alt={`${nickname} 님의 프로필 이미지`} />
-                </ImageWrapper>
+                <ProfileImage size="30px" userImage={user_image} alternate={nickname} />
                 <Nickname>{nickname}</Nickname>
                 <LikesAndComments likesList={liked} commentsList={comments} />
               </UserInfo>
@@ -49,8 +27,8 @@ export default function TrendList() {
                 ))}
               </Tag>
             </Content>
-          </PostCard>
-        </Link>
+          </Link>
+        </PostCard>
       ))}
     </Container>
   );
@@ -86,19 +64,6 @@ const UserInfo = styled.div`
   gap: 5px;
   align-items: center;
   margin: 8px 0;
-`;
-
-const ImageWrapper = styled.div`
-  width: 30px;
-  height: 30px;
-  border-radius: 100%;
-  overflow: hidden;
-`;
-
-const UserImage = styled.img`
-  width: 100%;
-  height: 100%:
-  border-radius: 100%;
 `;
 
 const Nickname = styled.p`

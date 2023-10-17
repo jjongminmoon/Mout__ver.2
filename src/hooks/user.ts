@@ -39,7 +39,7 @@ export const useUserData = () => {
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, [authInfo]);
 
   return { userData };
 };

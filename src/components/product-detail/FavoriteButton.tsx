@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { arrayRemove, arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { useUserData } from "../../hooks/user";
 import { dbService } from "../../service/firebase";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { IoHeartOutline, IoHeartSharp } from "react-icons/io5";
 
 export default function FavoriteButton({ productId }: { productId: number }) {
   const { userData } = useUserData();
@@ -25,9 +25,9 @@ export default function FavoriteButton({ productId }: { productId: number }) {
   return (
     <Container onClick={handleFavorite}>
       {favoriteList && favoriteList.includes(Number(productId)) ? (
-        <AiFillHeart className="heart-fill" />
+        <IoHeartSharp className="heart-fill" />
       ) : (
-        <AiOutlineHeart />
+        <IoHeartOutline />
       )}
     </Container>
   );

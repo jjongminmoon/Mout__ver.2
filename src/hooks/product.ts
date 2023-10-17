@@ -7,7 +7,7 @@ export default function useFullProduct() {
   const { data } = useQuery<ProductProps[]>("products", getProducts);
   const { id } = useParams();
 
-  const product: ProductProps | undefined = data?.filter((data) => data.id === Number(id))[0];
+  const product: ProductProps | undefined = data?.find((data) => data.id === Number(id));
 
   return { product };
 }

@@ -15,6 +15,12 @@ export default function TrendFormTagInput({ tagArr, setTagArr }: Props) {
     setTag("");
   };
 
+  const handleEnter = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      addToTag();
+    }
+  };
+
   return (
     <Wrapper>
       <p>태그</p>
@@ -23,6 +29,7 @@ export default function TrendFormTagInput({ tagArr, setTagArr }: Props) {
           value={tag}
           placeholder="태그를 추가해보세요"
           onChange={(e) => setTag(e.target.value)}
+          onKeyDown={(e) => handleEnter(e)}
         />
         <Button onClick={addToTag}>추가</Button>
       </InputWrapper>

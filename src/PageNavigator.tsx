@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { useUserData } from "./hooks/user";
 import MainPage from "./pages/MainPage";
 import TradePage from "./pages/TradePage";
 import ProductDetailPage from "./pages/ProductDetailPage";
@@ -16,7 +17,6 @@ import UserInfoPage from "./components/mypage/routes/UserInfoPage";
 import AddressManagementPage from "./components/mypage/routes/AddressManagementPage";
 import MyPostsPage from "./components/mypage/routes/MyPostsPage";
 import LikePostsPage from "./components/mypage/routes/LikePostsPage";
-import { useUserData } from "./hooks/user";
 
 export default function PageNavigator() {
   const { userData } = useUserData();

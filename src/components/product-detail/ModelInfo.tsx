@@ -20,7 +20,7 @@ export default function ModelInfo({ product }: Props) {
       <Title fontSize="20px">상품 정보</Title>
       <Info>
         {modelInfoList.map(({ title, content }) => (
-          <Item>
+          <Item key={title}>
             <SubTitle>{title}</SubTitle>
             <Content>{content}</Content>
           </Item>

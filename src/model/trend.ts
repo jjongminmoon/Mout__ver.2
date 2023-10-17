@@ -7,5 +7,13 @@ export type TrendProps = {
   createdAt: string;
   tag: string[];
   liked: string[];
-  comments: [];
+  comments: CommentsProps[];
+};
+
+export type CommentsProps = {
+  id: string;
+  user_image: string;
+  nickname: string;
+  comment: string;
+  createdAt: string;
 };

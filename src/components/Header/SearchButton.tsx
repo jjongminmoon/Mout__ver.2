@@ -1,14 +1,22 @@
 import styled from "@emotion/styled";
+import SearchBox from "./SearchBox";
+import { useState } from "react";
 import { BiSearch } from "react-icons/bi";
 
 export default function SearchButton() {
+  const [openSearchBox, setOpenSearchBox] = useState(false);
+
   return (
-    <Wrapper>
-      <Input placeholder="검색어를 입력해 주세요." />
-      <div>
-        <BiSearch />
-      </div>
-    </Wrapper>
+    <>
+      <Wrapper onClick={() => setOpenSearchBox(true)}>
+        <Input placeholder="검색어를 입력해 주세요." />
+        <div>
+          <BiSearch />
+        </div>
+      </Wrapper>
+
+      {openSearchBox && <SearchBox setOpenSearchBox={setOpenSearchBox} />}
+    </>
   );
 }
 

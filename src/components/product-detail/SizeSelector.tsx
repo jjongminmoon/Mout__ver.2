@@ -12,7 +12,7 @@ type Props = {
 
 export default function SizeSelector({ category, setOpenSizeSelector, setSelectedSize }: Props) {
   return (
-    <ModalContainer>
+    <ModalContainer center={true}>
       <Grid>
         <BiX className="exit" onClick={() => setOpenSizeSelector(false)} />
         {category === "shoes"

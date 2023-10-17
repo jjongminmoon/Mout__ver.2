@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { useUserData } from "../../hooks/user";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { IoHeartOutline, IoHeartSharp } from "react-icons/io5";
 import { BiMessageRounded } from "react-icons/bi";
 
 type Props = {
@@ -19,9 +19,9 @@ export default function LikesAndComments({ likesList, commentsList }: Props) {
       </Count>
       <Count>
         {likesList.includes(userData?.nickname) ? (
-          <AiFillHeart className="heart-fill" />
+          <IoHeartSharp className="heart-fill" />
         ) : (
-          <AiOutlineHeart className="heart-empty" />
+          <IoHeartOutline className="heart-empty" />
         )}
         {likesList.length}
       </Count>

@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const navList = [
   { title: "추천", pathname: "/" },
@@ -10,16 +9,15 @@ const navList = [
 ];
 
 export default function Navbar() {
-  const [selected, setSelected] = useState("추천");
+  const params = useLocation().pathname;
 
   return (
     <NavList>
       {navList.map(({ title, pathname }) => (
         <Item
           key={title}
-          onClick={() => setSelected(title)}
-          color={title === selected ? "white" : "var(--mout-gray-m)"}
-          underline={title === selected ? "3px solid white" : "none"}
+          color={params === pathname ? "white" : "var(--mout-gray-m)"}
+          underline={params === pathname ? "3px solid white" : "none"}
         >
           <Link to={pathname}>{title}</Link>
         </Item>

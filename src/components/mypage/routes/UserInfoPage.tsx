@@ -14,7 +14,6 @@ export default function UserInfoPage() {
 
   const infoList = [
     { title: "이메일(ID)", info: userData !== undefined && userData.email },
-    { title: "닉네임", info: userData?.nickname },
     {
       title: "가입경로",
       info: authData?.providerData[0].providerId === "password" ? "마우트" : "구글"
@@ -44,7 +43,7 @@ export default function UserInfoPage() {
                 </Td>
               </Item>
               {infoList.map(({ title, info }) => (
-                <Item>
+                <Item key={title}>
                   <Th>{title}</Th>
                   <Td>{info}</Td>
                 </Item>

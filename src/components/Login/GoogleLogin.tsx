@@ -16,11 +16,11 @@ export default function GoogleLogin() {
 
       if (allUser.includes(user)) {
         alert("정상적으로 로그인 되었습니다.");
-        navigate("/");
+        navigate("/my-page/user-info");
       } else {
         useAddUser(user.email);
         alert("Mout에 오신 것을 환영합니다. 회원님의 기본 정보를 입력해주세요.");
-        navigate("/");
+        navigate("/mypage/user-info");
       }
     });
   };

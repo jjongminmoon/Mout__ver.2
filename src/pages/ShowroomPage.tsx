@@ -1,3 +1,25 @@
+import styled from "@emotion/styled";
+import Title from "../components/common/Title";
+import Showroom from "../components/showroom/Showroom";
+
 export default function ShowroomPage() {
-  return <p>쇼룸 페이지</p>;
+  return (
+    <Section>
+      <TitleWrapper>
+        <Title fontSize="32px">쇼룸</Title>
+      </TitleWrapper>
+      <Showroom />
+    </Section>
+  );
 }
+
+const Section = styled.section`
+  width: 1200px;
+  padding: 60px 0;
+  margin: 0 auto;
+`;
+
+const TitleWrapper = styled.div`
+  padding-bottom: 20px;
+  border-bottom: 2px solid #ddd;
+`;

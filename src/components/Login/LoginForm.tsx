@@ -25,7 +25,7 @@ export default function LoginForm() {
     await signInWithEmailAndPassword(auth, email, pwd)
       .then(() => {
         alert("정상적으로 로그인 되었습니다.");
-        navigate("/");
+        navigate("/mypage/user-info");
       })
       .catch((err) => alert(err));
   };

@@ -25,7 +25,7 @@ export default function JoinForm() {
           useAddUser(email);
 
           alert("Mout에 오신 것을 환영합니다. 회원님의 기본 정보를 입력해주세요.");
-          navigate("/mypage/info");
+          navigate("/mypage/user-info");
         })
         .catch((err) => alert(err));
     }

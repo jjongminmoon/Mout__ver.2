@@ -12,7 +12,6 @@ type Props = {
 };
 
 export default function UploadButton({ userData, image, tagArr, setOpenForm }: Props) {
-  //
   const handleUpload = async () => {
     const docRef = doc(dbService, "user", userData.id);
     const coll = collection(dbService, "trend");
@@ -20,13 +19,16 @@ export default function UploadButton({ userData, image, tagArr, setOpenForm }: P
     if (userData.nickname === null) {
       alert("닉네임을 먼저 설정해주세요");
       return;
+    } else if (userData.image === null) {
+      alert("프로필 이미지를 먼저 설정해주세요");
+      return;
     } else if (image === null) {
       alert("공유하실 이미지를 첨부해주세요");
       return;
     } else {
       if (confirm("트렌드를 공유하시겠습니까?")) {
         await updateDoc(docRef, {
-          post: arrayUnion({
+          posts: arrayUnion({
             image: image
           })
         });

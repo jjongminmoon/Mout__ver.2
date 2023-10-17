@@ -73,6 +73,7 @@ const SearchButton = styled.label`
   border-radius: 6px;
   background-color: black;
   color: white;
+  cursor: pointer;
 `;
 
 const SaveButton = styled.button`
