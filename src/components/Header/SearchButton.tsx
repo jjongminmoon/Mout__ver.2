@@ -24,6 +24,7 @@ const Wrapper = styled.div`
   position: relative;
   width: 300px;
   height: 38px;
+  margin-bottom: 10px;
 
   div {
     position: absolute;

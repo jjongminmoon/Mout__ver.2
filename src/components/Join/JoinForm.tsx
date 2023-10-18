@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Input from "../common/Input";
+import Input from "../commonUI/Input";
 import Checkbox from "./Checkbox";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";

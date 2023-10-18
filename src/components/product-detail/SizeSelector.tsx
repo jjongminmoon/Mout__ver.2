@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
-import ModalContainer from "../common/ModalContainer";
+import ModalContainer from "../commonUI/ModalContainer";
 import { SetStateAction } from "react";
 import { BiX } from "react-icons/bi";
-import { clothesSizeList, shoesSizeList } from "../common/mapData";
+import { clothesSizeList, shoesSizeList } from "../../assets/data/mapData";
 
 type Props = {
   category: string;

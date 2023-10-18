@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import useProducts from "../../hooks/products";
-import Title from "../common/Title";
-import CarouselItem from "../common/CarouselItem";
-import CarouselUI from "../common/CarouselUI";
+import Title from "../commonUI/Title";
+import CarouselItem from "../commonUI/CarouselItem";
+import CarouselUI from "../commonUI/CarouselUI";
 import RankingCategory from "./RankingCategory";
 import { useState } from "react";
 

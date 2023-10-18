@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
-import Title from "../common/Title";
-import CarouselUI from "../common/CarouselUI";
+import Title from "../commonUI/Title";
+import CarouselUI from "../commonUI/CarouselUI";
 import useProducts from "../../hooks/products";
 import { ProductProps } from "../../model/product";
-import CarouselItem from "../common/CarouselItem";
+import CarouselItem from "../commonUI/CarouselItem";
 
 type Props = {
   product: ProductProps;

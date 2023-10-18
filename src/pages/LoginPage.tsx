@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Logo from "../components/common/Logo";
+import Logo from "../components/commonUI/Logo";
 import LoginForm from "../components/login/LoginForm";
 import ActionBar from "../components/login/ActionBar";
 import GoogleLogin from "../components/login/GoogleLogin";

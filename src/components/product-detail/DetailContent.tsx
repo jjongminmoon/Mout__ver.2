@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import FavoriteButton from "./FavoriteButton";
+import LikeProductButton from "../commonUI/LikeProductButton";
 import commaFormat from "../../util/commaFormat";
 import { ProductProps } from "../../model/product";
 import { UserInfoProps } from "../../model/user";
@@ -14,7 +14,7 @@ export default function DetailContent({ product, userData }: Props) {
     <>
       <Div>
         <Brand>{product.brand}</Brand>
-        {userData && <FavoriteButton productId={product.id} />}
+        {userData && <LikeProductButton productId={product.id} />}
       </Div>
       <KrName>{product.name_kr}</KrName>
       <EnName>{product.name_en}</EnName>

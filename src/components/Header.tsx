@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Logo from "./common/Logo";
+import Logo from "./commonUI/Logo";
 import ActionBar from "./header/ActionBar";
 import Navbar from "./header/Navbar";
 import SearchButton from "./header/SearchButton";

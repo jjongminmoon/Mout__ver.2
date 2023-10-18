@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import ProfileImage from "../common/ProfileImage";
+import ProfileImage from "../commonUI/ProfileImage";
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { dbService } from "../../service/firebase";
 import { useUserData } from "../../hooks/user";

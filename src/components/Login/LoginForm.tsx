@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Input from "../common/Input";
+import Input from "../commonUI/Input";
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../service/firebase";

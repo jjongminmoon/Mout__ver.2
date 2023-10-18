@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Title from "../components/common/Title";
+import Title from "../components/commonUI/Title";
 import OpenFormButton from "../components/trend/OpenFormButton";
 import { useState } from "react";
 import TrendList from "../components/trend/TrendList";
@@ -14,7 +14,7 @@ export default function TrendPage() {
         <Title fontSize="32px">트렌드</Title>
         <OpenFormButton setOpenForm={setOpenForm} />
       </TitleWrapper>
-      <TrendList />
+      <TrendList filter="all" />
 
       {openForm && <TrendUploadForm setOpenForm={setOpenForm} />}
     </Section>

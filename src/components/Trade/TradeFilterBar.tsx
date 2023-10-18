@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import Filter from "./Filter";
 import { SetStateAction } from "react";
-import { brandList, categoryList } from "../common/mapData";
+import { brandList, categoryList } from "../../assets/data/mapData";
 
 type Props = {
   selectedCategory: string;

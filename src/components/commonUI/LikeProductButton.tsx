@@ -4,36 +4,36 @@ import { useUserData } from "../../hooks/user";
 import { dbService } from "../../service/firebase";
 import { IoHeartOutline, IoHeartSharp } from "react-icons/io5";
 
-export default function FavoriteButton({ productId }: { productId: number }) {
+export default function LikeProductButton({ productId }: { productId: number }) {
   const { userData } = useUserData();
-  const favoriteList: number[] | undefined = userData.favorite;
+  const likeProducts: number[] | undefined = userData.likeProducts;
 
-  const handleFavorite = () => {
+  const handleLikeProduct = () => {
     const docRef = doc(dbService, "user", userData.id);
 
-    if (favoriteList && favoriteList.includes(productId)) {
+    if (likeProducts && likeProducts.includes(productId)) {
       updateDoc(docRef, {
-        favorite: arrayRemove(productId)
+        likeProducts: arrayRemove(productId)
       });
     } else {
       updateDoc(docRef, {
-        favorite: arrayUnion(productId)
+        likeProducts: arrayUnion(productId)
       });
     }
   };
 
   return (
-    <Container onClick={handleFavorite}>
-      {favoriteList && favoriteList.includes(Number(productId)) ? (
+    <Wrapper onClick={handleLikeProduct}>
+      {likeProducts && likeProducts.includes(Number(productId)) ? (
         <IoHeartSharp className="heart-fill" />
       ) : (
         <IoHeartOutline />
       )}
-    </Container>
+    </Wrapper>
   );
 }
 
-const Container = styled.div`
+const Wrapper = styled.div`
   font-size: 27px;
   height: 27px;
   cursor: pointer;

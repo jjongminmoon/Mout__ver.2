@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import ProfileImage from "../common/ProfileImage";
+import ProfileImage from "../commonUI/ProfileImage";
 
 type Props = {
   userImage: string;

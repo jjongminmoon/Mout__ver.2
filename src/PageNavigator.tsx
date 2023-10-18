@@ -10,13 +10,13 @@ import LoginPage from "./pages/LoginPage";
 import JoinPage from "./pages/JoinPage";
 import MyPage from "./pages/MyPage";
 import CustomerServicePage from "./pages/CustomerServicePage";
-import ActivitySummaryPage from "./components/mypage/routes/ActivitySummaryPage";
-import CartPage from "./components/mypage/routes/CartPage";
-import LikeProductsPage from "./components/mypage/routes/LikeProductsPage";
-import UserInfoPage from "./components/mypage/routes/UserInfoPage";
-import AddressManagementPage from "./components/mypage/routes/AddressManagementPage";
-import MyPostsPage from "./components/mypage/routes/MyPostsPage";
-import LikePostsPage from "./components/mypage/routes/LikePostsPage";
+import ActivitySummaryPage from "./pages/routes/ActivitySummaryPage";
+import CartPage from "./pages/routes/CartPage";
+import LikeProductsPage from "./pages/routes/LikeProductsPage";
+import UserInfoPage from "./pages/routes/UserInfoPage";
+import AddressManagementPage from "./pages/routes/AddressManagementPage";
+import MyPostsPage from "./pages/routes/MyPostsPage";
+import LikePostsPage from "./pages/routes/LikePostsPage";
 
 export default function PageNavigator() {
   const { userData } = useUserData();

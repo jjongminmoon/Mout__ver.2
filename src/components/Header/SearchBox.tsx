@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import ModalContainer from "../common/ModalContainer";
+import ModalContainer from "../commonUI/ModalContainer";
 import { BiSearch, BiX } from "react-icons/bi";
 import useProducts from "../../hooks/products";
 import { SetStateAction, useEffect, useState } from "react";

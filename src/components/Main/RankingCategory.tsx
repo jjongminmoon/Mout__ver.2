@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { categoryList } from "../common/mapData";
+import { categoryList } from "../../assets/data/mapData";
 import { SetStateAction } from "react";
 
 type Props = {

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Title from "../common/Title";
+import Title from "../commonUI/Title";
 import { SetStateAction, useState } from "react";
 import { useUserData } from "../../hooks/user";
 import TrendFormImage from "./TrendFormImage";

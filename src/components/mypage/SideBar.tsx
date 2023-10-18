@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
-import Title from "../common/Title";
+import Title from "../commonUI/Title";
 import { Link } from "react-router-dom";
 import NavList from "./NavList";
-import { communityNavList, shoppingNavList } from "../common/mapData";
+import { communityNavList, shoppingNavList } from "../../assets/data/mapData";
 
 export default function SideBar() {
   return (

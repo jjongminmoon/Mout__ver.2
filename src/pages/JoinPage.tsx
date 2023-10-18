@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Title from "../components/common/Title";
+import Title from "../components/commonUI/Title";
 import JoinForm from "../components/join/JoinForm";
 
 export default function JoinPage() {

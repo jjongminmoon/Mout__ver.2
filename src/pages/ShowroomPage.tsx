@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Title from "../components/common/Title";
+import Title from "../components/commonUI/Title";
 import Showroom from "../components/showroom/Showroom";
 
 export default function ShowroomPage() {

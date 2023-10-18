@@ -4,14 +4,33 @@ import { TrendProps } from "../../model/trend";
 import { Link } from "react-router-dom";
 import LikesAndComments from "./LikesAndComments";
 import useTrend from "../../hooks/trend";
-import ProfileImage from "../common/ProfileImage";
+import ProfileImage from "../commonUI/ProfileImage";
+import { useUserData } from "../../hooks/user";
 
-export default function TrendList() {
+type Props = {
+  filter: string;
+};
+
+export default function TrendList({ filter }: Props) {
+  const { userData } = useUserData();
   const { trendList } = useTrend();
+  const myTrendList = trendList.filter(
+    ({ nickname }: TrendProps) => nickname === userData.nickname
+  );
+  const likeTrendList = trendList.filter(({ liked }: TrendProps) =>
+    liked.includes(userData.nickname)
+  );
+
+  console.log(myTrendList);
 
   return (
     <Container>
-      {trendList.map(({ id, image, user_image, nickname, tag, liked, comments }: TrendProps) => (
+      {(filter === "myPosts"
+        ? myTrendList
+        : filter === "likePosts"
+        ? likeTrendList
+        : trendList
+      ).map(({ id, image, user_image, nickname, tag, liked, comments }: TrendProps) => (
         <PostCard key={id}>
           <Link to={`/trend/detail/${id}`}>
             <Image src={image} alt={`${nickname} 님의 게시물 이미지`} />

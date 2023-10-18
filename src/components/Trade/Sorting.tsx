@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { SetStateAction, useState } from "react";
 import { MdArrowDropUp, MdArrowDropDown } from "react-icons/md";
-import { sortingList } from "../common/mapData";
+import { sortingList } from "../../assets/data/mapData";
 
 type Props = {
   selectedSorting: string;

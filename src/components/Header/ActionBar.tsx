@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { actionList } from "../common/mapData";
+import { actionList } from "../../assets/data/mapData";
 import { Link, useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../../service/firebase";
