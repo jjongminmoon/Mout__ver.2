@@ -1,18 +1,12 @@
 import styled from "@emotion/styled";
+import { navList } from "../../assets/data/mapData";
 import { Link, useLocation } from "react-router-dom";
-
-const navList = [
-  { title: "추천", pathname: "/" },
-  { title: "트레이드", pathname: "/trade" },
-  { title: "트렌드", pathname: "/trend" },
-  { title: "쇼룸", pathname: "/showroom" }
-];
 
 export default function Navbar() {
   const params = useLocation().pathname;
 
   return (
-    <NavList>
+    <Wrapper>
       {navList.map(({ title, pathname }) => (
         <Item
           key={title}
@@ -22,11 +16,11 @@ export default function Navbar() {
           <Link to={pathname}>{title}</Link>
         </Item>
       ))}
-    </NavList>
+    </Wrapper>
   );
 }
 
-const NavList = styled.ul`
+const Wrapper = styled.ul`
   display: flex;
   gap: 25px;
   color: var(--mout-gray-m);

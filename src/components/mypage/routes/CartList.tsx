@@ -1,7 +1,10 @@
 import styled from "@emotion/styled";
 import commaFormat from "../../../util/commaFormat";
-import { useUserData } from "../../../hooks/user";
 import { CartProps } from "../../../model/cart";
+import { arrayRemove, doc, updateDoc } from "firebase/firestore";
+import { dbService } from "../../../service/firebase";
+import { useUserData } from "../../../hooks/user";
+import { ProductProps } from "../../../model/product";
 
 export default function CartList() {
   const { userData } = useUserData();
@@ -14,41 +17,72 @@ export default function CartList() {
     { id: "option", title: "옵션" },
     { id: "price", title: "판매가" },
     { id: "amount", title: "수량" },
-    { id: "check", title: <CheckBox type="checkbox" /> }
+    { id: "remove", title: "삭제" }
   ];
 
+  const removeFromCart = (product: ProductProps) => {
+    const docRef = doc(dbService, "user", userData.id);
+
+    if (confirm("선택한 상품을 장바구니에서 삭제하시겠습니까?")) {
+      updateDoc(docRef, {
+        cart: arrayRemove(product)
+      });
+    }
+  };
+
+  const allRemoveFromCart = () => {
+    const docRef = doc(dbService, "user", userData.id);
+
+    if (confirm("장바구니에 있는 상품을 모두 삭제하시겠습니까?")) {
+      updateDoc(docRef, {
+        cart: []
+      })
+        .then(() => {
+          alert("삭제 되었습니다");
+        })
+        .catch((err) => console.log(err));
+    } else {
+      return;
+    }
+  };
+
   return (
-    <Container>
-      <tbody>
-        {headerList.map(({ id, title }) => (
-          <Th key={id}>{title}</Th>
-        ))}
-        {cart && cart?.length > 0 ? (
-          cart?.map((product, index) => (
-            <Tr key={index}>
-              <td>{index + 1}</td>
-              <ImageWrapper>
-                <Image src={product.image} />
-              </ImageWrapper>
-              <td>
-                <KrName>{product.name_kr}</KrName>
-                <EnName>{product.name_en}</EnName>
-              </td>
-              <td>{product.size}</td>
-              <td>{commaFormat(product.price)}원</td>
-              <td>{product.quantity}</td>
-              <td>
-                <CheckBox type="checkbox" />
-              </td>
+    <>
+      <Container>
+        <tbody>
+          {headerList.map(({ id, title }) => (
+            <Th key={id}>{title}</Th>
+          ))}
+          {cart && cart?.length > 0 ? (
+            cart?.map((product, index) => (
+              <Tr key={index}>
+                <Td>{index + 1}</Td>
+                <ImageWrapper>
+                  <Image src={product.image} />
+                </ImageWrapper>
+                <Td>
+                  <KrName>{product.name_kr}</KrName>
+                  <EnName>{product.name_en}</EnName>
+                </Td>
+                <Td>{product.size}</Td>
+                <Td>{commaFormat(product.price)}원</Td>
+                <Td>{product.quantity}</Td>
+                <Td>
+                  <RemoveButton onClick={() => removeFromCart(product)}>삭제</RemoveButton>
+                </Td>
+              </Tr>
+            ))
+          ) : (
+            <Tr>
+              <NoResult>장바구니에 상품이 없습니다.</NoResult>
             </Tr>
-          ))
-        ) : (
-          <Tr>
-            <NoResult>장바구니에 상품이 없습니다.</NoResult>
-          </Tr>
-        )}
-      </tbody>
-    </Container>
+          )}
+        </tbody>
+      </Container>
+      <ButtonWrapper>
+        <AllRemoveButton onClick={allRemoveFromCart}>전체 삭제</AllRemoveButton>
+      </ButtonWrapper>
+    </>
   );
 }
 
@@ -61,13 +95,17 @@ const Container = styled.table`
 
 const Th = styled.th`
   border-bottom: 1px solid #ddd;
-  padding: 8px 0 10px 0;
+  padding: 8px 20px 10px 0;
   font-size: 14px;
   font-weight: 400;
 `;
 
 const Tr = styled.tr`
   font-size: 14px;
+`;
+
+const Td = styled.td`
+  padding-right: 20px;
 `;
 
 const ImageWrapper = styled.td`
@@ -94,8 +132,27 @@ const EnName = styled.p`
   color: var(--mout-gray-s);
 `;
 
-const CheckBox = styled.input``;
+const RemoveButton = styled.button`
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  background-color: #ccc;
+  color: white;
+`;
 
 const NoResult = styled.td`
   height: 80px;
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: right;
+`;
+
+const AllRemoveButton = styled.button`
+  padding: 5px 30px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: black;
+  color: white;
 `;

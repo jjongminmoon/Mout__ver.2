@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import ChangeNickname from "../ChangeNickname";
-import ChangeProfileImage from "../ChangeProfileImage";
+import ChangeNickname from "./ChangeNickname";
+import ChangeProfileImage from "./ChangeProfileImage";
 import { useUserData } from "../../../hooks/user";
 import { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider";

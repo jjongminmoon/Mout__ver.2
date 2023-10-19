@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-
 import FooterBar from "./footer/FooterBar";
 import CompayInfo from "./footer/CompayInfo";
 import AddressInfo from "./footer/AddressInfo";

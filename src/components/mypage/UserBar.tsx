@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import { useUserData } from "../../hooks/user";
 import noImage from "../../assets/images/noImage.webp";
+import { useUserData } from "../../hooks/user";
 
 export default function UserBar() {
   const { userData } = useUserData();

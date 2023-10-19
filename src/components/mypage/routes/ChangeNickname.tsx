@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
 import { useContext, useState } from "react";
-import { AllUserContext } from "../../contexts/AllUserProvider";
-import { UserInfoProps } from "../../model/user";
+import { AllUserContext } from "../../../contexts/AllUserProvider";
+import { UserInfoProps } from "../../../model/user";
 import { doc, updateDoc } from "firebase/firestore";
-import { dbService } from "../../service/firebase";
-import { useUserData } from "../../hooks/user";
+import { dbService } from "../../../service/firebase";
+import { useUserData } from "../../../hooks/user";
 
 export default function ChangeNickname() {
   const allUser = useContext(AllUserContext);
@@ -56,10 +56,11 @@ const Wrapper = styled.div`
 `;
 
 const Input = styled.input`
-  padding: 5px;
+  padding: 5px 10px;
   border: 1px solid #ddd;
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
+  background-color: #f5f5f5;
 `;
 
 const Button = styled.button`

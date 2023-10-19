@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
 import PostHeader from "../components/trend-detail/PostHeader";
 import useTrend from "../hooks/trend";
-import { useParams } from "react-router-dom";
-import { TrendProps } from "../model/trend";
 import LikesButton from "../components/trend-detail/LikesButton";
 import TagLine from "../components/trend-detail/TagLine";
 import Comments from "../components/trend-detail/Comments";
 import CommentInput from "../components/trend-detail/CommentInput";
+import { useParams } from "react-router-dom";
+import { TrendProps } from "../model/trend";
 
 export default function TrendDetailPage() {
   const { trendList } = useTrend();
@@ -17,14 +17,18 @@ export default function TrendDetailPage() {
     <>
       {post && (
         <Section>
-          <PostHeader userImage={post.user_image} nickname={post.nickname} />
+          <PostHeader
+            userImage={post.user_image}
+            nickname={post.nickname}
+            createdAt={post.createdAt}
+          />
           <PostImage src={post.image} alt={`${post.nickname} 님의 게시물 이미지`} />
           <LikesButton likesList={post.liked} postId={String(id)} />
           <LikesCount>
             좋아요<p className="count">{post.liked.length}</p>개
           </LikesCount>
           <TagLine tag={post.tag} />
-          <Comments comments={post.comments} />
+          <Comments comments={post.comments} createdAt={post.createdAt} />
           <CommentInput postId={post.id} image={post.image} />
         </Section>
       )}

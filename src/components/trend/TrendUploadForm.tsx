@@ -1,11 +1,11 @@
 import styled from "@emotion/styled";
 import Title from "../commonUI/Title";
-import { SetStateAction, useState } from "react";
-import { useUserData } from "../../hooks/user";
 import TrendFormImage from "./TrendFormImage";
 import TrendFormTagInput from "./TrendFormTagInput";
 import UploadButton from "./UploadButton";
 import ResetButton from "./ResetButton";
+import { SetStateAction, useState } from "react";
+import { useUserData } from "../../hooks/user";
 import { BiX } from "react-icons/bi";
 
 type Props = {

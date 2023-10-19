@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import { doc, updateDoc } from "firebase/firestore";
 import { useState } from "react";
-import { dbService } from "../../service/firebase";
-import { useUserData } from "../../hooks/user";
+import { dbService } from "../../../service/firebase";
+import { useUserData } from "../../../hooks/user";
 
 export default function ChangeProfileImage() {
   const { userData } = useUserData();
@@ -28,6 +28,7 @@ export default function ChangeProfileImage() {
     } else {
       if (confirm("프로필 이미지를 변경하시겠습니까?")) {
         const docRef = doc(dbService, "user", userData.id);
+
         updateDoc(docRef, {
           image: image
         })
@@ -67,7 +68,7 @@ const SearchButton = styled.label`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100px;
+  width: 103px;
   height: 30px;
   border: none;
   border-radius: 6px;
@@ -78,7 +79,7 @@ const SearchButton = styled.label`
 
 const SaveButton = styled.button`
   margin-left: 5px;
-  width: 98px;
+  width: 103px;
   height: 30px;
   border: none;
   border-radius: 6px;

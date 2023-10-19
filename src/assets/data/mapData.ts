@@ -3,6 +3,13 @@ export const actionList = [
   { title: "고객센터", pathname: "/cs" }
 ];
 
+export const navList = [
+  { title: "추천", pathname: "/" },
+  { title: "트레이드", pathname: "/trade" },
+  { title: "트렌드", pathname: "/trend" },
+  { title: "쇼룸", pathname: "/showroom" }
+];
+
 export const categoryList = [
   { id: 1, title: "", print: "전체" },
   { id: 2, title: "shoes", print: "스니커즈" },

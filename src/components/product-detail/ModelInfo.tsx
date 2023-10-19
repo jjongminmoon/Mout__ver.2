@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import { ProductProps } from "../../model/product";
 import Title from "../commonUI/Title";
+import { ProductProps } from "../../model/product";
 
 type Props = {
   product: ProductProps | undefined;

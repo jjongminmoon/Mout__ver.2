@@ -1,6 +1,4 @@
 import styled from "@emotion/styled";
-import { useUserData } from "../hooks/user";
-import { useState } from "react";
 import DetailContent from "../components/product-detail/DetailContent";
 import useFullProduct from "../hooks/product";
 import SizeSeletorButton from "../components/product-detail/SizeSeletorButton";
@@ -12,6 +10,8 @@ import EventBanner from "../components/product-detail/EventBanner";
 import ModelInfo from "../components/product-detail/ModelInfo";
 import RelatedProductsCarousel from "../components/product-detail/RelatedProductsCarousel";
 import ProductHeaderBar from "../components/product-detail/ProductHeaderBar";
+import { useUserData } from "../hooks/user";
+import { useState } from "react";
 
 export default function ProductDetailPage() {
   const { userData } = useUserData();

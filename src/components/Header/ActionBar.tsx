@@ -19,7 +19,7 @@ export default function ActionBar() {
   };
 
   return (
-    <ActionList>
+    <Wrapper>
       <Item onClick={authData ? handleLogout : () => navigate("/login")}>
         {authData ? "로그아웃" : "로그인"}
       </Item>
@@ -28,11 +28,11 @@ export default function ActionBar() {
           <Link to={pathname}>{title}</Link>
         </Item>
       ))}
-    </ActionList>
+    </Wrapper>
   );
 }
 
-const ActionList = styled.ul`
+const Wrapper = styled.ul`
   display: flex;
   gap: 20px;
   color: var(--mout-gray-s);

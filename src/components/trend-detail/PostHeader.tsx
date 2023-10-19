@@ -7,6 +7,8 @@ type Props = {
 };
 
 export default function PostHeader({ userImage, nickname }: Props) {
+  console.log(Date.now());
+
   return (
     <Wrapper>
       <ProfileImage size="44px" userImage={userImage} alternate={nickname} />

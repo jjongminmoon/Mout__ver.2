@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import Title from "../components/commonUI/Title";
 import OpenFormButton from "../components/trend/OpenFormButton";
-import { useState } from "react";
 import TrendList from "../components/trend/TrendList";
 import TrendUploadForm from "../components/trend/TrendUploadForm";
+import { useState } from "react";
 
 export default function TrendPage() {
   const [openForm, setOpenForm] = useState(false);

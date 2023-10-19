@@ -36,7 +36,7 @@ export default function CommentInput({ postId }: Props) {
         user_image: userData.image,
         nickname: userData.nickname,
         comment: comment,
-        createdAt: Date.now()
+        createdAt: new Date()
       })
     });
 
@@ -54,6 +54,7 @@ export default function CommentInput({ postId }: Props) {
       <ProfileImage size="44px" userImage={userData?.image} alternate={userData?.nickname} />
       <Input
         placeholder="댓글을 작성해주세요..."
+        value={comment}
         onChange={handleInput}
         onKeyDown={(e) => handleEnter(e)}
       />

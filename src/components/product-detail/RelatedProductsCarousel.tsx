@@ -2,8 +2,8 @@ import styled from "@emotion/styled";
 import Title from "../commonUI/Title";
 import CarouselUI from "../commonUI/CarouselUI";
 import useProducts from "../../hooks/products";
-import { ProductProps } from "../../model/product";
 import CarouselItem from "../commonUI/CarouselItem";
+import { ProductProps } from "../../model/product";
 
 type Props = {
   product: ProductProps;
@@ -13,7 +13,7 @@ export default function RelatedProductsCarousel({ product }: Props) {
   const { data: products } = useProducts();
 
   return (
-    <Container>
+    <Wrapper>
       <Title fontSize="20px">연관 추천 상품</Title>
       <CarouselUI>
         {products
@@ -24,10 +24,10 @@ export default function RelatedProductsCarousel({ product }: Props) {
             </div>
           ))}
       </CarouselUI>
-    </Container>
+    </Wrapper>
   );
 }
 
-const Container = styled.div`
+const Wrapper = styled.div`
   margin-top: 40px;
 `;

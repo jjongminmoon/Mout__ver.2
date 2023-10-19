@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import useProducts from "../../../hooks/products";
 import commaFormat from "../../../util/commaFormat";
-import { useUserData } from "../../../hooks/user";
 import LikeProductButton from "../../commonUI/LikeProductButton";
+import { useUserData } from "../../../hooks/user";
 
 export default function LikeProductsList() {
   const { userData } = useUserData();

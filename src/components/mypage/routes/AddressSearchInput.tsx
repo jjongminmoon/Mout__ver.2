@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import { useState } from "react";
 import ModalContainer from "../../commonUI/ModalContainer";
 import DaumPostCode from "react-daum-postcode";
+import { useState } from "react";
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { dbService } from "../../../service/firebase";
 import { useUserData } from "../../../hooks/user";
@@ -84,6 +84,7 @@ export default function AddressSearchInput() {
         <PostInput
           type="text"
           placeholder="이름"
+          autoComplete="off"
           name="name"
           value={post.postName}
           onChange={handleInput}
@@ -92,6 +93,7 @@ export default function AddressSearchInput() {
           <PostInput
             type="text"
             placeholder="주소 별칭"
+            autoComplete="off"
             name="address-name"
             value={post.postAddressName}
             onChange={handleInput}
@@ -113,6 +115,7 @@ export default function AddressSearchInput() {
           placeholder="상세 주소"
           name="detail-address"
           value={post.postInput}
+          autoComplete="off"
           onChange={handleInput}
         />
       </Container>
@@ -123,7 +126,6 @@ export default function AddressSearchInput() {
             <DaumPostCode
               onComplete={handleSearchAddress}
               autoClose={true}
-              defaultQuery="판교역로 235"
               className="daum-postcode"
             />
           </PostcodeWrapper>

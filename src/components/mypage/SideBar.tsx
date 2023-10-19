@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import Title from "../commonUI/Title";
-import { Link } from "react-router-dom";
 import NavList from "./NavList";
+import { Link } from "react-router-dom";
 import { communityNavList, shoppingNavList } from "../../assets/data/mapData";
 
 export default function SideBar() {

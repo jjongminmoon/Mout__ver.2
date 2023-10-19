@@ -11,7 +11,7 @@ export default function Checkbox({ checked, setChecked }: Props) {
     <Wrapper>
       <input type="checkbox" onClick={() => setChecked(!checked)} />
       <p>{"[필수]"}</p>
-      <span>만 14세 이상입니다.</span>
+      <span>마우트 이용 약관에 동의합니다.</span>
     </Wrapper>
   );
 }

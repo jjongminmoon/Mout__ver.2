@@ -1,11 +1,12 @@
 import styled from "@emotion/styled";
 import ModalContainer from "../commonUI/ModalContainer";
-import { BiSearch, BiX } from "react-icons/bi";
 import useProducts from "../../hooks/products";
-import { SetStateAction, useEffect, useState } from "react";
 import useDebounce from "../../hooks/debounce";
-import { ProductProps } from "../../model/product";
 import SearchResult from "./SearchResult";
+import { SetStateAction, useEffect, useState } from "react";
+import { ProductProps } from "../../model/product";
+import { BiSearch, BiX } from "react-icons/bi";
+import Input from "../commonUI/Input";
 
 type Props = {
   setOpenSearchBox: React.Dispatch<SetStateAction<boolean>>;
@@ -33,6 +34,7 @@ export default function SearchBox({ setOpenSearchBox }: Props) {
           <InputWrapper>
             <Input
               type="text"
+              width="100%"
               placeholder="제품명으로 검색"
               onChange={(e) => setSearchValue(e.target.value)}
             />
@@ -73,7 +75,7 @@ const InputWrapper = styled.div`
   .search {
     position: absolute;
     top: 14px;
-    left: 13px;
+    right: 20px;
     font-size: 22px;
   }
 `;
@@ -82,12 +84,4 @@ const Count = styled.p`
   font-size: 14px;
   padding: 15px 0;
   border-bottom: 1px solid #ddd;
-`;
-
-const Input = styled.input`
-  width: 100%;
-  background-color: #f5f5f5;
-  border: none;
-  border-radius: 8px;
-  padding: 15px 40px 15px 53px;
 `;

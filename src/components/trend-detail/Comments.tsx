@@ -2,11 +2,15 @@ import styled from "@emotion/styled";
 import ProfileImage from "../commonUI/ProfileImage";
 import { CommentsProps } from "../../model/trend";
 
-export default function Comments({ comments }: { comments: CommentsProps[] }) {
+type Props = {
+  comments: CommentsProps[] | undefined;
+};
+
+export default function Comments({ comments }: Props) {
   return (
     <Wrapper>
       <CommentsCount>
-        댓글 <p className="count">{comments.length}</p>개
+        댓글 <p className="count">{comments?.length}</p>개
       </CommentsCount>
       <CommentList>
         {comments &&

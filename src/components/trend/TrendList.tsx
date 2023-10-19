@@ -1,10 +1,9 @@
 import styled from "@emotion/styled";
-
-import { TrendProps } from "../../model/trend";
-import { Link } from "react-router-dom";
 import LikesAndComments from "./LikesAndComments";
 import useTrend from "../../hooks/trend";
 import ProfileImage from "../commonUI/ProfileImage";
+import { TrendProps } from "../../model/trend";
+import { Link } from "react-router-dom";
 import { useUserData } from "../../hooks/user";
 
 type Props = {
@@ -20,8 +19,6 @@ export default function TrendList({ filter }: Props) {
   const likeTrendList = trendList.filter(({ liked }: TrendProps) =>
     liked.includes(userData.nickname)
   );
-
-  console.log(myTrendList);
 
   return (
     <Container>

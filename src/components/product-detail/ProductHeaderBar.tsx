@@ -1,11 +1,11 @@
 import styled from "@emotion/styled";
-import { UserInfoProps } from "../../model/user";
-import { ProductProps } from "../../model/product";
-import { SetStateAction, useEffect, useState } from "react";
 import SizeSeletorButton from "./SizeSeletorButton";
 import QuantitySelector from "./QuantitySeletor";
 import PurchaseButton from "./PurchaseButton";
 import AddToCartButton from "./AddToCartButton";
+import { UserInfoProps } from "../../model/user";
+import { ProductProps } from "../../model/product";
+import { SetStateAction, useEffect, useState } from "react";
 
 type Props = {
   userData: UserInfoProps;

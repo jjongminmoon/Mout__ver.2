@@ -67,11 +67,11 @@ export default function AddToCartButton({
 const Button = styled.button<{ height: string; fontSize: string }>`
   width: 100%;
   height: ${(props) => props.height};
+  padding: 11px 0;
   font-size: ${(props) => props.fontSize};
   font-weight: bold;
   color: white;
   text-align: center;
-  padding: 11px 0;
   border: none;
   border-radius: 12px;
   background-color: var(--mout-button-red);
