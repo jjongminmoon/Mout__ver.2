@@ -7,10 +7,9 @@ import { dbService } from "../../service/firebase";
 
 type Props = {
   likesList: string[];
-  postId: string;
 };
 
-export default function LikesButton({ likesList, postId }: Props) {
+export default function LikesButton({ likesList }: Props) {
   const { userData } = useUserData();
   const { id } = useParams();
 
@@ -20,14 +19,14 @@ export default function LikesButton({ likesList, postId }: Props) {
 
     if (likesList && likesList.includes(userData.nickname)) {
       updateDoc(userDocRef, {
-        likePosts: arrayRemove(postId)
+        likePosts: arrayRemove(String(id))
       });
       updateDoc(trendDocRef, {
         liked: arrayRemove(userData.nickname)
       });
     } else {
       updateDoc(userDocRef, {
-        likePosts: arrayUnion(postId)
+        likePosts: arrayUnion(String(id))
       });
       updateDoc(trendDocRef, {
         liked: arrayUnion(userData.nickname)

@@ -1,19 +1,19 @@
 import styled from "@emotion/styled";
 import ProfileImage from "../commonUI/ProfileImage";
+import { creationTimeFromNow } from "../../util/creationTimeFromNow";
 
 type Props = {
   userImage: string;
   nickname: string;
+  createdAt: Date;
 };
 
-export default function PostHeader({ userImage, nickname }: Props) {
-  console.log(Date.now());
-
+export default function PostHeader({ userImage, nickname, createdAt }: Props) {
   return (
     <Wrapper>
       <ProfileImage size="44px" userImage={userImage} alternate={nickname} />
       <Nickname>{nickname}</Nickname>
-      <Time>2시간 전</Time>
+      <Time>{creationTimeFromNow(createdAt)}</Time>
     </Wrapper>
   );
 }

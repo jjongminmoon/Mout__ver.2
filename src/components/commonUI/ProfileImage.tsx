@@ -21,7 +21,9 @@ export default function ProfileImage({ size, userImage, alternate }: Props) {
 
 const Wrapper = styled.div<{ size: string }>`
   width: ${(props) => props.size};
+  min-width: ${(props) => props.size};
   height: ${(props) => props.size};
+  min-height: ${(props) => props.size};
   border-radius: 100%;
   overflow: hidden;
 `;

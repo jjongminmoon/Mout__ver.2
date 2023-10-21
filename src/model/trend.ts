@@ -4,7 +4,7 @@ export type TrendProps = {
   user_image: string;
   nickname: string;
   image: string;
-  createdAt: string;
+  createdAt: Date;
   tag: string[];
   liked: string[];
   comments: CommentsProps[];
@@ -12,8 +12,7 @@ export type TrendProps = {
 
 export type CommentsProps = {
   id: string;
-  user_image: string;
   nickname: string;
   comment: string;
-  createdAt: string;
+  createdAt: Date;
 };

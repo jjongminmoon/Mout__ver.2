@@ -33,10 +33,9 @@ export default function CommentInput({ postId }: Props) {
     });
     updateDoc(trendDocRef, {
       comments: arrayUnion({
-        user_image: userData.image,
         nickname: userData.nickname,
         comment: comment,
-        createdAt: new Date()
+        createdAt: Date.now()
       })
     });
 
