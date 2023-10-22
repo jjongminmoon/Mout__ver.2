@@ -14,7 +14,7 @@ export default function useProducts() {
 export const useInfinityScrollProducts = ({ size }: any) =>
   useInfiniteQuery(
     "products",
-    ({ pageParam = 0 }) =>
+    ({ pageParam = 1 }) =>
       axios.get(url, {
         params: { page: pageParam, size }
       }),
