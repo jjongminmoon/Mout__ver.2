@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import Title from "../components/commonUI/Title";
 import OpenFormButton from "../components/trend/OpenFormButton";
-import TrendList from "../components/trend/TrendList";
-import TrendUploadForm from "../components/trend/TrendUploadForm";
+import TrendList from "../components/trend/PostList";
+import PostUploadForm from "../components/trend/PostUploadForm";
 import { useState } from "react";
 
 export default function TrendPage() {
@@ -16,7 +16,7 @@ export default function TrendPage() {
       </TitleWrapper>
       <TrendList filter="all" />
 
-      {openForm && <TrendUploadForm setOpenForm={setOpenForm} />}
+      {openForm && <PostUploadForm setOpenForm={setOpenForm} />}
     </Section>
   );
 }

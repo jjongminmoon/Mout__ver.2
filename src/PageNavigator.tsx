@@ -4,7 +4,7 @@ import MainPage from "./pages/MainPage";
 import TradePage from "./pages/TradePage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import TrendPage from "./pages/TrendPage";
-import TrendDetailPage from "./pages/TrendDetailPage";
+import PostDetailPage from "./pages/PostDetailPage";
 import ShowroomPage from "./pages/ShowroomPage";
 import LoginPage from "./pages/LoginPage";
 import JoinPage from "./pages/JoinPage";
@@ -29,7 +29,7 @@ export default function PageNavigator() {
       <Route path="/trade" element={<TradePage />} />
       <Route path="/trade/detail/:id" element={<ProductDetailPage />} />
       <Route path="/trend" element={<TrendPage />} />
-      <Route path="/trend/detail/:id" element={<TrendDetailPage />} />
+      <Route path="/trend/detail/:id" element={<PostDetailPage />} />
       <Route path="/showroom" element={<ShowroomPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/find-password" element={<LoginPage />} />

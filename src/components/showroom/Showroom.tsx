@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import Title from "../commonUI/Title";
 import { useState } from "react";
 import { MapContainer } from "./MapContainer";
 
@@ -13,6 +14,7 @@ export default function ShowroomSelector() {
         <SelectButton onClick={() => setAddress(seongsu)}>마우트 성수</SelectButton>
         <SelectButton onClick={() => setAddress(mokdong)}>마우트 목동</SelectButton>
       </Wrapper>
+      <Title fontSize="20px">{address === seongsu ? "마우트 성수" : "마우트 목동"}</Title>
       <p>
         {address}, {address === seongsu ? "2층" : "지하 1층"}
       </p>

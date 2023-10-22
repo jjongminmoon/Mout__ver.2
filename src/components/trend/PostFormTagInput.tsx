@@ -6,7 +6,7 @@ type Props = {
   setTagArr: React.Dispatch<SetStateAction<string[]>>;
 };
 
-export default function TrendFormTagInput({ tagArr, setTagArr }: Props) {
+export default function PostFormTagInput({ tagArr, setTagArr }: Props) {
   const [tag, setTag] = useState("");
 
   const addToTag = () => {

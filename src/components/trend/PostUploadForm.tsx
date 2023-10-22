@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import Title from "../commonUI/Title";
-import TrendFormImage from "./TrendFormImage";
-import TrendFormTagInput from "./TrendFormTagInput";
+import PostFormImage from "./PostFormImage";
+import PostFormTagInput from "./PostFormTagInput";
 import UploadButton from "./UploadButton";
 import ResetButton from "./ResetButton";
 import { SetStateAction, useState } from "react";
@@ -12,7 +12,7 @@ type Props = {
   setOpenForm: React.Dispatch<SetStateAction<boolean>>;
 };
 
-export default function TrendUploadForm({ setOpenForm }: Props) {
+export default function PostUploadForm({ setOpenForm }: Props) {
   const { userData } = useUserData();
   const [image, setImage] = useState<any>(null);
   const [tagArr, setTagArr] = useState<string[]>([]);
@@ -22,8 +22,8 @@ export default function TrendUploadForm({ setOpenForm }: Props) {
       <BiX className="exit" onClick={() => setOpenForm(false)} />
       <Title fontSize="32x">트렌드 업로드</Title>
       <Form>
-        <TrendFormImage image={image} setImage={setImage} />
-        <TrendFormTagInput tagArr={tagArr} setTagArr={setTagArr} />
+        <PostFormImage image={image} setImage={setImage} />
+        <PostFormTagInput tagArr={tagArr} setTagArr={setTagArr} />
         <Tag>
           {tagArr.map((item, index) => (
             <p key={index}>#{item}</p>

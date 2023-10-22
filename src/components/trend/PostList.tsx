@@ -10,7 +10,7 @@ type Props = {
   filter: string;
 };
 
-export default function TrendList({ filter }: Props) {
+export default function PostList({ filter }: Props) {
   const { userData } = useUserData();
   const { trendList } = useTrend();
   const myTrendList = trendList.filter(

@@ -10,7 +10,7 @@ import { TrendProps } from "../model/trend";
 import LikeOfList from "../components/trend-detail/LikeOfList";
 import { useState } from "react";
 
-export default function TrendDetailPage() {
+export default function PostDetailPage() {
   const { trendList } = useTrend();
   const { id } = useParams();
   const [openLikesList, setOpenLikesList] = useState(false);

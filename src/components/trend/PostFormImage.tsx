@@ -7,7 +7,7 @@ type Props = {
   setImage: React.Dispatch<SetStateAction<any>>;
 };
 
-export default function TrendFormImage({ image, setImage }: Props) {
+export default function PostFormImage({ image, setImage }: Props) {
   //
   const uploadImage = (e: any) => {
     const file = e.target.files[0];

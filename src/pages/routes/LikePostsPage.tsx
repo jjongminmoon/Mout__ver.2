@@ -1,5 +1,5 @@
 import Title from "../../components/commonUI/Title";
-import TrendList from "../../components/trend/TrendList";
+import TrendList from "../../components/trend/PostList";
 
 export default function LikePostsPage() {
   return (
