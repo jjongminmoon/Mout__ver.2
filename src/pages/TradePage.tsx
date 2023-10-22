@@ -1,11 +1,8 @@
 import styled from "@emotion/styled";
 import FilterBar from "../components/trade/TradeFilterBar";
-import useProducts from "../hooks/products";
-import commaFormat from "../util/commaFormat";
 import Sorting from "../components/trade/Sorting";
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import ProductList from "../components/trade/ProductList";
+import { useState } from "react";
 
 export default function TradePage() {
   const [selectedCategory, setSelectedCategory] = useState("");
