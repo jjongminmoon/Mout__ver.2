@@ -8,7 +8,11 @@ import { AllUserProvider } from "./contexts/AllUserProvider";
 import { AuthProvider } from "./contexts/AuthProvider";
 
 const queryClient = new QueryClient({
-  defaultOptions: {}
+  defaultOptions: {
+    queries: {
+      suspense: true
+    }
+  }
 });
 
 function App() {

@@ -1,10 +1,7 @@
 import styled from "@emotion/styled";
 import commaFormat from "../../util/commaFormat";
-import useIntersect from "../../hooks/infinityScroll";
+import useProducts from "../../hooks/products";
 import { Link } from "react-router-dom";
-import { useInfinityScrollProducts } from "../../hooks/products";
-import { useMemo } from "react";
-import { ProductProps } from "../../model/product";
 
 type Props = {
   selectedCategory: string;
@@ -13,23 +10,7 @@ type Props = {
 };
 
 export default function ProductList({ selectedCategory, selectedBrand, selectedSorting }: Props) {
-  const { data, hasNextPage, isFetching, fetchNextPage } = useInfinityScrollProducts({
-    size: 10
-  });
-
-  const products: ProductProps[] = useMemo(
-    () => (data ? data.pages.flatMap(({ data }: any) => data) : []),
-    [data]
-  );
-
-  const ref = useIntersect(async (entry, observer) => {
-    observer.unobserve(entry.target);
-    if (hasNextPage && !isFetching) {
-      fetchNextPage();
-    }
-  });
-
-  console.log(products);
+  const { data: products } = useProducts();
 
   return (
     <Wrapper>
@@ -58,8 +39,6 @@ export default function ProductList({ selectedCategory, selectedBrand, selectedS
             </Link>
           </Item>
         ))}
-      {isFetching && <p>Loading</p>}
-      <div ref={ref} />
     </Wrapper>
   );
 }

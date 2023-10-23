@@ -10,26 +10,26 @@ export default function AddressSearchInput() {
   const { userData } = useUserData();
   const [openSearchInput, setOpenSearchInput] = useState(false);
   const [post, setPost] = useState({
-    postCode: "",
-    postResult: "",
-    postName: "",
     postAddressName: "",
+    postName: "",
+    postCode: "",
     postContact: "",
+    postResult: "",
     postInput: ""
   });
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     const type = e.target.name;
-    if (type === "name") {
-      setPost({
-        ...post,
-        postName: e.target.value
-      });
-    } else if (type === "address-name") {
+    if (type === "address-name") {
       setPost({
         ...post,
         postAddressName: e.target.value
+      });
+    } else if (type === "name") {
+      setPost({
+        ...post,
+        postName: e.target.value
       });
     } else if (type === "contact") {
       setPost({
@@ -55,10 +55,10 @@ export default function AddressSearchInput() {
 
   const addToAddressList = () => {
     if (
-      post.postCode === "" ||
-      post.postContact === "" ||
-      post.postName === "" ||
       post.postAddressName === "" ||
+      post.postName === "" ||
+      post.postContact === "" ||
+      post.postCode === "" ||
       post.postResult === "" ||
       post.postInput === ""
     ) {
@@ -83,19 +83,19 @@ export default function AddressSearchInput() {
         <Button onClick={addToAddressList}>주소 추가</Button>
         <PostInput
           type="text"
-          placeholder="이름"
+          placeholder="주소 별칭"
           autoComplete="off"
-          name="name"
-          value={post.postName}
+          name="address-name"
+          value={post.postAddressName}
           onChange={handleInput}
         />
         <InputWrapper>
           <PostInput
             type="text"
-            placeholder="주소 별칭"
+            placeholder="이름"
             autoComplete="off"
-            name="address-name"
-            value={post.postAddressName}
+            name="name"
+            value={post.postName}
             onChange={handleInput}
           />
           <PostInput

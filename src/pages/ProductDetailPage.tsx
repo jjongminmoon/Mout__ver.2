@@ -3,13 +3,14 @@ import DetailContent from "../components/product-detail/DetailContent";
 import useFullProduct from "../hooks/product";
 import SizeSeletorButton from "../components/product-detail/SizeSeletorButton";
 import QuantitySelector from "../components/product-detail/QuantitySeletor";
-import PurchaseButton from "../components/product-detail/PurchaseButton";
+import DirectOrderButton from "../components/product-detail/DirectOrderButton";
 import AddToCartButton from "../components/product-detail/AddToCartButton";
 import DeliveryInfo from "../components/product-detail/DeliveryInfo";
 import EventBanner from "../components/product-detail/EventBanner";
 import ModelInfo from "../components/product-detail/ModelInfo";
 import RelatedProductsCarousel from "../components/product-detail/RelatedProductsCarousel";
 import ProductHeaderBar from "../components/product-detail/ProductHeaderBar";
+import DirectOrderBox from "../components/product-detail/DirectOrderBox";
 import { useUserData } from "../hooks/user";
 import { useState } from "react";
 
@@ -18,6 +19,7 @@ export default function ProductDetailPage() {
   const { product } = useFullProduct();
   const [selectedSize, setSelectedSize] = useState("");
   const [quantity, setQuantity] = useState(1);
+  const [openDirectOrder, setOpenDirectOrder] = useState(false);
 
   return (
     product && (
@@ -50,10 +52,14 @@ export default function ProductDetailPage() {
             </OptionSelector>
             <Space />
             <ButtonBox>
-              <PurchaseButton height="62px" fontSize="18px" />
-              <AddToCartButton
-                fontSize="18px"
+              <DirectOrderButton
                 height="62px"
+                fontSize="18px"
+                onClick={() => setOpenDirectOrder(true)}
+              />
+              <AddToCartButton
+                height="62px"
+                fontSize="18px"
                 userData={userData}
                 product={product}
                 selectedSize={selectedSize}
@@ -66,6 +72,15 @@ export default function ProductDetailPage() {
           </Wrapper>
         </Container>
         <RelatedProductsCarousel product={product} />
+
+        {openDirectOrder && (
+          <DirectOrderBox
+            product={product}
+            selectedSize={selectedSize}
+            quantity={quantity}
+            setOpenDirectOrder={setOpenDirectOrder}
+          />
+        )}
       </Section>
     )
   );

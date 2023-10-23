@@ -1,9 +1,15 @@
 import styled from "@emotion/styled";
 
-export default function PurchaseButton({ height, fontSize }: { height: string; fontSize: string }) {
+type Props = {
+  height: string;
+  fontSize: string;
+  onClick: () => void;
+};
+
+export default function DirectOrderButton({ height, fontSize, onClick }: Props) {
   return (
-    <Button height={height} fontSize={fontSize} onClick={() => {}}>
-      구매
+    <Button height={height} fontSize={fontSize} onClick={onClick}>
+      즉시구매
     </Button>
   );
 }

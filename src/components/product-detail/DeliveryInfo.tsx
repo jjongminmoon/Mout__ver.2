@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { FcInTransit, FcDeployment, FcFactory } from "react-icons/fc";
+import { FcDeployment, FcFactory } from "react-icons/fc";
 
 export default function DeliveryInfo() {
   return (
@@ -7,10 +7,6 @@ export default function DeliveryInfo() {
       <Item>
         <FcDeployment className="icon" />
         일반 배송 <p>3,000원</p>
-      </Item>
-      <Item>
-        <FcInTransit className="icon" />
-        바로 배송 <p>5,000원</p>
       </Item>
       <Item>
         <FcFactory className="icon" />

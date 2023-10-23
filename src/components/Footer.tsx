@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import FooterBar from "./footer/FooterBar";
-import CompayInfo from "./footer/CompayInfo";
-import AddressInfo from "./footer/AddressInfo";
+import CompayAddressInfo from "./footer/CompayInfo";
+import AddressInfo from "./footer/CompanyAddressInfo";
 import Notice from "./footer/Notice";
 import CustomerService from "./footer/CustomerService";
 
@@ -12,7 +12,7 @@ export default function Footer() {
       <Container>
         <div>
           <Title className="title">{"(주)마우트"}</Title>
-          <CompayInfo />
+          <CompayAddressInfo />
           <AddressInfo />
           <Notice />
         </div>

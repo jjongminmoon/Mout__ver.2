@@ -5,6 +5,7 @@ import { arrayRemove, doc, updateDoc } from "firebase/firestore";
 import { dbService } from "../../../service/firebase";
 import { useUserData } from "../../../hooks/user";
 import { ProductProps } from "../../../model/product";
+import { Link } from "react-router-dom";
 
 export default function CartList() {
   const { userData } = useUserData();
@@ -58,7 +59,7 @@ export default function CartList() {
               <Tr key={index}>
                 <Td>{index + 1}</Td>
                 <ImageWrapper>
-                  <Image src={product.image} />
+                  <Image src={product.image} alt={`${product.name_kr} 제품 이미지`} />
                 </ImageWrapper>
                 <Td>
                   <KrName>{product.name_kr}</KrName>
@@ -80,7 +81,12 @@ export default function CartList() {
         </tbody>
       </Container>
       <ButtonWrapper>
-        <AllRemoveButton onClick={allRemoveFromCart}>전체 삭제</AllRemoveButton>
+        <Button backgroundColor="var(--mout-button-blue)">
+          <Link to="/order">주문 / 결제</Link>
+        </Button>
+        <Button backgroundColor="var(--mout-button-red)" onClick={allRemoveFromCart}>
+          전체 삭제
+        </Button>
       </ButtonWrapper>
     </>
   );
@@ -146,13 +152,14 @@ const NoResult = styled.td`
 const ButtonWrapper = styled.div`
   display: flex;
   justify-content: right;
+  gap: 10px;
 `;
 
-const AllRemoveButton = styled.button`
+const Button = styled.button<{ backgroundColor: string }>`
   padding: 5px 30px;
   margin-top: 20px;
   border: none;
   border-radius: 8px;
-  background-color: black;
+  background-color: ${(props) => props.backgroundColor};
   color: white;
 `;

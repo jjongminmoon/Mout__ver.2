@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import SizeSeletorButton from "./SizeSeletorButton";
 import QuantitySelector from "./QuantitySeletor";
-import PurchaseButton from "./PurchaseButton";
+import PurchaseButton from "./DirectOrderButton";
 import AddToCartButton from "./AddToCartButton";
 import { UserInfoProps } from "../../model/user";
 import { ProductProps } from "../../model/product";
@@ -55,7 +55,7 @@ export default function ProductHeaderBar({
           />
           <QuantitySelector height="56px" quantity={quantity} setQuantity={setQuantity} />
           <ButtonWrapper>
-            <PurchaseButton height="56px" fontSize="14px" />
+            <PurchaseButton height="56px" fontSize="14px" onClick={() => {}} />
             <AddToCartButton
               height="56px"
               fontSize="14px"
