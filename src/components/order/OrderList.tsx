@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import commaFormat from "../../util/commaFormat";
-import { CartProps } from "../../model/cart";
 import Title from "../commonUI/Title";
+import { CartProps } from "../../model/cart";
 
 type Props = {
   cart: CartProps[] | undefined;

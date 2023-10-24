@@ -50,14 +50,16 @@ const Image = styled.div`
 `;
 
 const Name = styled.p`
+  height: 40px;
+  margin-top: 5px;
   font-size: 14px;
   color: var(--mout-gray-m);
-  height: 40px;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
 
 const Price = styled.p`
+  margin-top: 5px;
   font-size: 16px;
   font-weight: 700;
 `;

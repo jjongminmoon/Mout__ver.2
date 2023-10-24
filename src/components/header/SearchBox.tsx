@@ -3,10 +3,10 @@ import ModalContainer from "../commonUI/ModalContainer";
 import useProducts from "../../hooks/products";
 import useDebounce from "../../hooks/debounce";
 import SearchResult from "./SearchResult";
+import Input from "../commonUI/Input";
 import { SetStateAction, useEffect, useState } from "react";
 import { ProductProps } from "../../model/product";
 import { BiSearch, BiX } from "react-icons/bi";
-import Input from "../commonUI/Input";
 
 type Props = {
   setOpenSearchBox: React.Dispatch<SetStateAction<boolean>>;

@@ -2,7 +2,6 @@ import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import JoinPage from "./pages/JoinPage";
-import CustomerServicePage from "./pages/CustomerServicePage";
 import Loading from "./components/commonUI/Loading";
 
 const MainPage = lazy(() => import("./pages/MainPage"));
@@ -44,7 +43,6 @@ export default function PageNavigator() {
           <Route path="/mypage/my-posts" element={<MyPostsPage />} />
           <Route path="/mypage/like-posts" element={<LikePostsPage />} />
         </Route>
-        <Route path="/cs" element={<CustomerServicePage />} />
       </Routes>
     </Suspense>
   );

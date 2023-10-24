@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import { AddressProps, UserInfoProps } from "../../model/user";
 import AddressItem from "../commonUI/AddressItem";
 import Title from "../commonUI/Title";
+import { AddressProps, UserInfoProps } from "../../model/user";
 
 export default function AddressInfo({ userData }: { userData: UserInfoProps }) {
   return (

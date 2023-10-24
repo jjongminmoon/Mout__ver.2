@@ -23,7 +23,7 @@ export default function RankingCarousel() {
           .sort((a, b) => b.salesVolume - a.salesVolume)
           .slice(0, 20)
           .map(({ id, image, name_kr, price }, index) => (
-            <Wrapper key={id}>
+            <Wrapper key={index}>
               <CarouselItem id={id} image={image} name_kr={name_kr} price={price} />
               <RankNumber>{index + 1}</RankNumber>
             </Wrapper>

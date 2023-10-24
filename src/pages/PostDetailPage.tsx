@@ -5,9 +5,9 @@ import LikesButton from "../components/trend-detail/LikesButton";
 import TagLine from "../components/trend-detail/TagLine";
 import Comments from "../components/trend-detail/Comments";
 import CommentInput from "../components/trend-detail/CommentInput";
+import LikeOfList from "../components/trend-detail/LikeOfList";
 import { useParams } from "react-router-dom";
 import { TrendProps } from "../model/trend";
-import LikeOfList from "../components/trend-detail/LikeOfList";
 import { useState } from "react";
 
 export default function PostDetailPage() {

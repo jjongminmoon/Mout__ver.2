@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { actionList } from "../../assets/data/mapData";
 import { Link, useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../../service/firebase";
@@ -23,11 +22,10 @@ export default function ActionBar() {
       <Item onClick={authData ? handleLogout : () => navigate("/login")}>
         {authData ? "로그아웃" : "로그인"}
       </Item>
-      {actionList.map(({ title, pathname }) => (
-        <Item key={title}>
-          <Link to={pathname}>{title}</Link>
-        </Item>
-      ))}
+      <Item>
+        <Link to="/mypage">마이페이지</Link>
+      </Item>
+      <Item onClick={() => alert("준비중입니다.")}>고객센터</Item>
     </Wrapper>
   );
 }

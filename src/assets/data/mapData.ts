@@ -1,8 +1,3 @@
-export const actionList = [
-  { title: "마이페이지", pathname: "/mypage" },
-  { title: "고객센터", pathname: "/cs" }
-];
-
 export const navList = [
   { title: "추천", pathname: "/" },
   { title: "트레이드", pathname: "/trade" },
