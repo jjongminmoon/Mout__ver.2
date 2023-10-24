@@ -1,9 +1,12 @@
 import styled from "@emotion/styled";
 import SideBar from "../components/mypage/SideBar";
 import UserBar from "../components/mypage/UserBar";
+import loginStatus from "../hooks/loginStatus";
 import { Outlet } from "react-router-dom";
 
 export default function MyPage() {
+  loginStatus();
+
   return (
     <Section>
       <SideBar />

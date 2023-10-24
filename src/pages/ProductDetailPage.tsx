@@ -13,6 +13,7 @@ import ProductHeaderBar from "../components/product-detail/ProductHeaderBar";
 import DirectOrderBox from "../components/product-detail/DirectOrderBox";
 import { useUserData } from "../hooks/user";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductDetailPage() {
   const { userData } = useUserData();
@@ -20,6 +21,7 @@ export default function ProductDetailPage() {
   const [selectedSize, setSelectedSize] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [openDirectOrder, setOpenDirectOrder] = useState(false);
+  const navigate = useNavigate();
 
   return (
     product && (
@@ -55,7 +57,7 @@ export default function ProductDetailPage() {
               <DirectOrderButton
                 height="62px"
                 fontSize="18px"
-                onClick={() => setOpenDirectOrder(true)}
+                onClick={() => (userData ? setOpenDirectOrder(true) : navigate("/login"))}
               />
               <AddToCartButton
                 height="62px"

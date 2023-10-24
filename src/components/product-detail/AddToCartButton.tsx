@@ -32,12 +32,7 @@ export default function AddToCartButton({
       (item: CartProps) => item.id === cartInfo.id && item.size === cartInfo.size
     );
 
-    if (userData === null) {
-      alert("장바구니는 마우트 회원만 이용가능합니다.");
-    } else if (
-      selectedSize === "" &&
-      (product.category === "shoes" || product.category === "clothes")
-    ) {
+    if (selectedSize === "" && (product.category === "shoes" || product.category === "clothes")) {
       alert("사이즈를 선택해주세요.");
       return;
     } else if (sameItem) {
@@ -58,7 +53,11 @@ export default function AddToCartButton({
   };
 
   return (
-    <Button height={height} fontSize={fontSize} onClick={addToCart}>
+    <Button
+      height={height}
+      fontSize={fontSize}
+      onClick={() => (userData ? addToCart : navigate("/login"))}
+    >
       장바구니
     </Button>
   );

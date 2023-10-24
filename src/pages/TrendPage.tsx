@@ -3,10 +3,13 @@ import Title from "../components/commonUI/Title";
 import OpenFormButton from "../components/trend/OpenFormButton";
 import TrendList from "../components/trend/PostList";
 import PostUploadForm from "../components/trend/PostUploadForm";
+import loginStatus from "../hooks/loginStatus";
 import { useState } from "react";
 
 export default function TrendPage() {
   const [openForm, setOpenForm] = useState(false);
+
+  loginStatus();
 
   return (
     <Section>
