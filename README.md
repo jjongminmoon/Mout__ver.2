@@ -14,6 +14,7 @@
 - React
 - TypeScript
 - Emotion
+- Context API
 - React-Query
 - Axios
 - Firebase Auth : 로그인 및 회원가입, 유저 정보
