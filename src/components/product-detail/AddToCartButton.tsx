@@ -37,6 +37,7 @@ export default function AddToCartButton({
       return;
     } else if (sameItem) {
       alert("같은 상품이 장바구니에 있습니다.");
+      return;
     } else {
       if (confirm("상품을 장바구니에 담으시겠습니까?")) {
         updateDoc(docRef, {
@@ -56,7 +57,7 @@ export default function AddToCartButton({
     <Button
       height={height}
       fontSize={fontSize}
-      onClick={() => (userData ? addToCart : navigate("/login"))}
+      onClick={() => (userData ? addToCart() : navigate("/login"))}
     >
       장바구니
     </Button>
