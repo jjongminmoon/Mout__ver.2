@@ -13,19 +13,15 @@ type Props = {
 export default function PostList({ filter }: Props) {
   const { userData } = useUserData();
   const { trendList } = useTrend();
-  const myTrendList = trendList.filter(
-    ({ nickname }: TrendProps) => nickname === userData.nickname
-  );
-  const likeTrendList = trendList.filter(({ liked }: TrendProps) =>
-    liked.includes(userData.nickname)
-  );
+  const myPostsList = trendList.filter(({ email }: TrendProps) => email === userData.email);
+  const likePostsList = trendList.filter(({ liked }: TrendProps) => liked.includes(userData.id));
 
   return (
     <Container>
       {(filter === "myPosts"
-        ? myTrendList
+        ? myPostsList
         : filter === "likePosts"
-        ? likeTrendList
+        ? likePostsList
         : trendList
       ).map(({ id, image, user_image, nickname, tag, liked, comments }: TrendProps) => (
         <PostCard key={id}>

@@ -38,15 +38,17 @@ export default function ChangeNickname() {
   };
 
   return (
-    <Wrapper>
-      <Input
-        type="text"
-        placeholder="변경할 닉네임"
-        value={changeNickname}
-        onChange={(e) => setChangeNickname(e.target.value)}
-      />
-      <Button onClick={handleChangeNickname}>변경</Button>
-    </Wrapper>
+    userData.nickname === null && (
+      <Wrapper>
+        <Input
+          type="text"
+          placeholder="변경할 닉네임"
+          value={changeNickname}
+          onChange={(e) => setChangeNickname(e.target.value)}
+        />
+        <Button onClick={handleChangeNickname}>변경</Button>
+      </Wrapper>
+    )
   );
 }
 

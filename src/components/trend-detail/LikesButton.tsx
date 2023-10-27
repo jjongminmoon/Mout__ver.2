@@ -17,26 +17,26 @@ export default function LikesButton({ likesList }: Props) {
     const userDocRef = doc(dbService, "user", userData.id);
     const trendDocRef = doc(dbService, "trend", String(id));
 
-    if (likesList && likesList.includes(userData.nickname)) {
+    if (likesList && likesList.includes(userData.id)) {
       updateDoc(userDocRef, {
         likePosts: arrayRemove(String(id))
       });
       updateDoc(trendDocRef, {
-        liked: arrayRemove(userData.nickname)
+        liked: arrayRemove(userData.id)
       });
     } else {
       updateDoc(userDocRef, {
         likePosts: arrayUnion(String(id))
       });
       updateDoc(trendDocRef, {
-        liked: arrayUnion(userData.nickname)
+        liked: arrayUnion(userData.id)
       });
     }
   };
 
   return (
     <Button onClick={handleLikes}>
-      {likesList.includes(userData?.nickname) ? (
+      {likesList.includes(userData?.id) ? (
         <IoHeartSharp className="heart-fill" />
       ) : (
         <IoHeartOutline className="heart-empty" />

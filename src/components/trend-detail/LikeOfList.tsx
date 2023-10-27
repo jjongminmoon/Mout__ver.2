@@ -11,7 +11,7 @@ type Props = {
 
 export default function LikeOfList({ likesList, setOpenLikesList }: Props) {
   const allUser = useContext(AllUserContext);
-  const likesUserData = allUser.filter((user: UserInfoProps) => likesList.includes(user.nickname));
+  const likesUserData = allUser.filter((user: UserInfoProps) => likesList.includes(user.id));
 
   return (
     <Wrapper>
