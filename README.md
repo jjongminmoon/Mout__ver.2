@@ -30,7 +30,7 @@
   <img src = "src/assets/readme/MoutTradePage.png" width=700 height=400 />
 
 - 제품 상세페이지 내 좋아요 버튼 / 장바구니 버튼을 통해 유저 데이터베이스에 저장
-  <img src = "src/assets/readme/ProductDetail.png" width=700 height=400 />
+  <img src = "src/assets/readme/MoutProductDetail.png" width=700 height=400 />
 
 - 마이페이지 내에서 장바구니에 담긴 제품 수량 / 리스트 확인 가능
   <img src = "src/assets/readme/MoutMypage.png" width=700 height=400 />
